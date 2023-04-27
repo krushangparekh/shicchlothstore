@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_alignParentStart="true"
+		android:layout_alignParentTop="true"
+		android:fillViewport="true"
+		tools:ignore="UselessParent">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center|top"
+			android:orientation="vertical">
+			<!--<ImageView
+				android:id="@+id/detailed_img"
+				android:layout_width="match_parent"
+				android:layout_height="250dp"
+				android:layout_marginTop="5dp"
+				android:scaleType="centerCrop"
+				android:src="@drawable/fashionone"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintHorizontal_bias="0.0"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent" />-->
+			<RelativeLayout
+				android:layout_width="380dp"
+				android:layout_height="400dp"
+				android:layout_margin="10dp"
+				android:layout_gravity="center|top"
+				android:foregroundGravity="center_vertical">
+
+				<androidx.viewpager.widget.ViewPager
+					android:id="@+id/viewPager"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:scaleType="centerCrop"
+					android:layout_alignParentStart="true"
+					android:layout_alignParentTop="true"  />
+				<LinearLayout
+					android:id="@+id/indicatorLayout"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentBottom="true"
+					android:layout_centerHorizontal="true"
+					android:layout_marginBottom="16dp"
+					android:orientation="horizontal">
+					<!-- Indicator views (e.g. dots) will be added dynamically here -->
+
+				</LinearLayout>
+
+			</RelativeLayout>
+
+			<TextView
+				android:id="@+id/TVproductname"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="left"
+				android:text="@string/product_name"
+				android:textColor="@color/black"
+				android:textSize="18sp"
+				android:textStyle="bold"
+				android:layout_marginBottom="9dp"
+				android:paddingStart="40dp"
+
+				app:title="Product Detailed"
+				tools:ignore="RtlHardcoded,RtlSymmetry" />
+			<ProgressBar
+				android:id="@+id/progressBar2"
+				android:layout_width="40dp"
+				android:layout_height="40dp"
+				android:layout_gravity="center"
+				android:visibility="gone" />
+
+			<androidx.cardview.widget.CardView
+				android:id="@+id/cardview"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="20dp"
+				android:layout_marginRight="20dp"
+				android:elevation="10dp"
+				android:transformPivotY="-50dp"
+				app:cardCornerRadius="10dp"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toBottomOf="@id/viewPager"
+				tools:targetApi="lollipop">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_marginLeft="20dp"
+					android:layout_marginRight="20dp"
+					android:orientation="vertical">
+
+					<!--<RelativeLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content">
+
+						<TextView
+							android:id="@+id/detailed_toolbar"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginEnd="5dp"
+							android:layout_toStartOf="@+id/detailed_toolbar"
+							android:text="@string/product_detailed"
+							android:textColor="#FC20B2E3"
+							android:textSize="15sp"
+							tools:ignore="NotSibling" />
+					</RelativeLayout>-->
+
+					<TextView
+						android:id="@+id/textview_price"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_gravity="left"
+						android:layout_marginTop="5dp"
+						android:layout_marginStart="10dp"
+
+						android:text="@string/price"
+						android:textColor="@color/black"
+						android:textSize="15sp"
+						android:textStyle="bold" />
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:gravity="left"
+						android:layout_marginBottom="5dp"
+						android:orientation="horizontal">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="@string/rupy"
+							android:layout_marginStart="10dp"
+							android:layout_marginEnd="5dp"
+							android:textColor="@color/black"
+							android:textStyle="bold" />
+
+						<TextView
+							android:id="@+id/detailed_price"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:text=" gfgrg"
+							android:textColor="@color/purple_700"
+							android:textSize="15sp"
+							android:textStyle="bold" />
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:text="MRP"
+							android:layout_gravity="center_horizontal"
+							android:layout_marginStart="5dp"
+							android:paddingTop="3dp"
+							android:textColor="@color/black"
+							android:textSize="12sp"
+							android:textStyle="bold" />
+
+					</LinearLayout>
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dp"
+						android:layout_marginBottom="10dp"
+						android:gravity="left"
+						android:orientation="horizontal">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginEnd="10dp"
+							android:text="@string/size"
+							android:layout_gravity="center"
+							android:layout_marginStart="10dp"
+							android:layout_marginBottom="3dp"
+							android:textColor="@color/black"
+							android:textSize="16sp"
+							android:textStyle="normal" />
+						
+
+
+						<HorizontalScrollView
+							android:layout_width="match_parent"
+							android:layout_height="30dp"
+							android:scrollbars="none">
+						<LinearLayout
+							android:id="@+id/myLayoutId"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal" >
+						</LinearLayout>
+						</HorizontalScrollView>
+
+
+
+
+					</LinearLayout>
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dp"
+						android:layout_marginBottom="10dp"
+						android:gravity="left"
+						android:orientation="horizontal">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginEnd="10dp"
+							android:text="@string/color"
+							android:layout_gravity="center"
+							android:layout_marginBottom="2dp"
+							android:layout_marginStart="10dp"
+							android:textColor="@color/black"
+							android:textSize="15sp"
+							android:textStyle="normal" />
+
+						<TextView
+							android:id="@+id/tvcolorch"
+							android:layout_width="49dp"
+							android:layout_height="match_parent"
+							android:layout_marginEnd="10dp"
+							android:text="     "
+							android:textColor="@color/purple_700"
+							android:textSize="15sp"
+							android:gravity="center"
+							android:textStyle="bold"
+							tools:ignore="HardcodedText" />
+					</LinearLayout>
+
+				<!--	<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_margin="10dp"
+						android:gravity="center_horizontal"
+						android:orientation="horizontal">
+
+						<ImageView
+							android:id="@+id/add_item"
+							android:layout_width="25dp"
+							android:layout_height="40dp"
+							android:layout_marginEnd="5dp"
+							android:src="@drawable/plus"
+							tools:ignore="ContentDescription" />
+
+						<TextView
+							android:id="@+id/quantity_cunt_textview"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="1"
+							android:layout_gravity="center"
+							android:textSize="20sp"
+							android:textStyle="bold" />
+
+
+						<ImageView
+							android:id="@+id/remove_item"
+							android:layout_width="25dp"
+							android:layout_height="40dp"
+							android:layout_marginLeft="5dp"
+							android:src="@drawable/iconminus" />
+
+					</LinearLayout>-->
+					<LinearLayout
+						android:id="@+id/number_input_layout"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:gravity="left"
+						android:orientation="horizontal">
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginEnd="10dp"
+							android:text="@string/quantity"
+							android:layout_gravity="center"
+							android:layout_marginStart="10dp"
+							android:textColor="@color/black"
+							android:textSize="15sp"
+							android:textStyle="normal" />
+
+						<Button
+							android:id="@+id/minus_button"
+							android:layout_width="40dp"
+							android:layout_height="25dp"
+							android:layout_marginEnd="5dp"
+							android:layout_marginStart="10dp"
+
+							android:background="@drawable/btnbox"
+							android:backgroundTint="@color/ligthblue"
+
+							android:text="-" />
+
+						<TextView
+							android:id="@+id/number_input"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:cursorVisible="false"
+							android:editable="false"
+							android:focusable="false"
+							android:gravity="center"
+							android:inputType="number"
+							android:padding="5dp"
+							android:text="@string/_0"
+							android:textColor="@color/purple_700"
+							android:textSize="20sp"
+							tools:ignore="TextViewEdits" />
+
+						<Button
+							android:id="@+id/plus_button"
+							android:layout_width="40dp"
+							android:layout_height="25dp"
+							android:layout_marginLeft="10dp"
+							android:background="@drawable/btnbox"
+							android:layout_marginStart="5dp"
+							android:backgroundTint="@color/ligthblue"
+
+							android:text="+" />
+
+					</LinearLayout>
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="10dp"
+						android:layout_marginStart="10dp"
+						android:layout_marginBottom="5dp"
+						android:textColor="@color/black"
+						android:textStyle="bold"
+
+						android:text="@string/product_detailsss"
+						android:textSize="16sp" />
+					<TextView
+						android:id="@+id/detailed_textview"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="5dp"
+						android:layout_marginStart="10dp"
+						android:layout_marginBottom="5dp"
+
+						android:text="@string/htmlbody"
+						android:textSize="16sp" />
+					<ImageView
+						android:layout_width="wrap_content"
+						android:layout_height="130dp"
+						android:src="@drawable/happycutomerimg">
+
+					</ImageView>
+
+
+				</LinearLayout>
+
+
+			</androidx.cardview.widget.CardView>
+
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				tools:ignore="MissingConstraints">
+
+
+			</LinearLayout>
+
+			<Button
+				android:id="@+id/add_to_cart_button"
+				android:layout_width="200dp"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginTop="30dp"
+				android:drawableStart="@drawable/ic_baseline_shopping_cart_24"
+				android:backgroundTint="@color/ligthblue"
+				android:drawableTint="@color/black"
+				android:padding="15dp"
+				android:text="@string/add_to_cart"
+				android:textAllCaps="false"
+				android:textStyle="bold"
+				tools:targetApi="m" />
+
+			<Button
+				android:id="@+id/buy_now_button"
+				android:layout_width="160dp"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginTop="30dp"
+				android:textColor="#FC000000"
+				android:backgroundTint="@color/ligthblue"
+				android:background="@drawable/btnbox"
+				android:padding="15dp"
+				android:text="buy now"
+				android:textAllCaps="false"
+				android:textStyle="bold" />
+
+		</LinearLayout>
+
+
+	</ScrollView>
+
+
+</RelativeLayout>

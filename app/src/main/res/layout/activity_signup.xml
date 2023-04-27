@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/white"
+	android:orientation="vertical"
+	android:padding="20dp">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<ImageView
+			android:layout_width="305dp"
+			android:layout_height="176dp"
+			android:layout_gravity="center"
+			android:src="@drawable/fotor" />
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:layout_marginBottom="5dp"
+			android:gravity="center"
+			android:text="@string/signup_to_start_your_new_journey"
+			android:textColor="@color/black"
+			android:textSize="17sp" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<EditText
+				android:id="@+id/etFirstName"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="5dp"
+				android:background="@drawable/box"
+				android:hint="First Name"
+				android:maxLength="10"
+				android:paddingHorizontal="8dp"
+				android:paddingVertical="15dp"
+				android:maxLines="32"
+				android:inputType="text"
+				android:importantForAutofill="yes"
+				android:paddingStart="20dp"
+				android:singleLine="true"
+				android:textSize="15dp"
+				android:textColor="@color/black" />
+
+			<EditText
+				android:id="@+id/etLastName"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="5dp"
+				android:background="@drawable/box"
+				android:importantForAutofill="yes"
+				android:paddingHorizontal="8dp"
+				android:paddingVertical="15dp"
+				android:textSize="15dp"
+				android:maxLength="32"
+				android:inputType="text"
+				android:hint="Last Name"
+				android:paddingStart="20dp"
+				android:singleLine="true"
+				android:layout_marginTop="10dp"
+				android:textColor="@color/black" />
+
+			<EditText
+				android:id="@+id/mEmail"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="5dp"
+				android:background="@drawable/box"
+				android:importantForAutofill="yes"
+				android:hint="Email"
+				android:paddingHorizontal="8dp"
+				android:paddingVertical="15dp"
+				android:maxLines="64"
+				android:textSize="15dp"
+				android:maxLength="32"
+				android:paddingStart="20dp"
+				android:singleLine="true"
+				android:layout_marginTop="10dp"
+				android:inputType="textEmailAddress"
+				android:textColor="@color/black" />
+
+			<EditText
+				android:id="@+id/mPassword"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="5dp"
+				android:background="@drawable/box"
+				android:hint="Password "
+				android:importantForAutofill="yes"
+				android:maxLength="10"
+				android:inputType="numberPassword"
+				android:paddingHorizontal="8dp"
+				android:paddingVertical="15dp"
+				android:textSize="15dp"
+				android:paddingStart="20dp"
+				android:layout_marginTop="10dp"
+				android:singleLine="true" />
+
+			<!--<EditText
+				android:id="@+id/mPassword2"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="5dp"
+				android:background="@drawable/box"
+				android:hint="Password "
+				android:importantForAutofill="yes"
+
+				android:inputType="textPassword"
+				android:maxLength="10"
+				android:padding="10dp"
+				android:paddingStart="20dp"
+
+				android:singleLine="true" />-->
+
+			<EditText
+				android:id="@+id/etConfirmPassword"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="5dp"
+				android:background="@drawable/box"
+				android:hint="confirm password "
+				android:importantForAutofill="yes"
+				android:inputType="numberPassword"
+				android:paddingHorizontal="8dp"
+				android:paddingVertical="15dp"
+				android:textSize="15dp"
+				android:maxLength="10"
+				android:paddingStart="20dp"
+				android:layout_marginTop="10dp"
+				android:singleLine="true" />
+			-->
+		</LinearLayout>
+
+		<Button
+			android:id="@+id/SIGNUPbtn"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="9dp"
+			android:layout_marginTop="5dp"
+			android:background="@drawable/box"
+			android:backgroundTint="@color/backgroundColor"
+			android:padding="9sp"
+			android:textSize="15dp"
+			android:rotationX="2"
+			android:shadowColor="@color/black"
+			android:text="@string/sign_up" />
+		<TextView
+			android:id="@+id/alredyloginBTN"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:textColor="@color/black"
+			android:text="@string/already_have_an_account_login" />
+
+		<ProgressBar
+			android:id="@+id/progressBar"
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:layout_gravity="center"
+			android:layout_marginTop="20dp"/>
+	</LinearLayout>
+
+</ScrollView>
+

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/white"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<ImageView
+			android:id="@+id/mainimageView"
+			android:layout_width="wrap_content"
+			android:layout_height="250dp"
+			android:layout_marginStart="10dp"
+			android:layout_marginTop="60dp"
+			android:layout_marginEnd="10dp"
+			android:src="@drawable/main"
+			android:elevation="100dp"
+
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			>
+
+		</ImageView>
+
+		<TextView
+			android:id="@+id/Tvmmainscrname"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="18dp"
+			android:layout_margin="50dp"
+			android:text="Clothing Store"
+			android:textAlignment="center"
+			android:textColor="@color/black"
+			android:textSize="50sp"
+			android:fontFamily="@font/abhaya_libre_medium"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.0"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/TvvvtextView" />
+
+		<TextView
+			android:id="@+id/TVmainslogan"
+			android:layout_width="match_parent"
+			android:layout_height="37dp"
+			android:gravity="center"
+			android:text="Dress like you're already famous"
+			android:textSize="18sp"
+			android:textColor="@color/black"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/TVmainslogan"
+			/>
+
+		<!--<Button
+			android:id="@+id/buttonmain"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="50dp"
+			android:background="@drawable/box"
+			android:backgroundTint="@color/white"
+			android:text="GO"
+			android:textSize="15dp"
+			android:textColor="@color/black"
+			app:layout_constraintTop_toBottomOf="@+id/TVmainslogan" />-->
+
+		<Button
+			android:id="@+id/buttonmain"
+			android:layout_margin="50dp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_x="250px"
+			android:background="@drawable/boxblack"
+			android:textSize="15dp"
+			android:textColor="@color/black"
+			android:layout_y="361px"
+			android:text="@string/Go" />
+
+		<ProgressBar
+			android:layout_width="40dp"
+			android:layout_height="40dp"
+			android:layout_gravity="center"
+			android:backgroundTint="@color/black"/>
+
+	</LinearLayout>
+
+
+
+</ScrollView>
+

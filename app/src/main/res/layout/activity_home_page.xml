@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?><!--navigation deawer use code start-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/my_home_page_layout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/white"
+	android:orientation="vertical"
+	tools:ignore="HardcodedText">
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/white"
+		android:orientation="vertical">
+
+		<RelativeLayout
+			android:id="@+id/RlTopView"
+			android:layout_width="match_parent"
+			android:layout_height="52dp"
+			android:background="@color/white">
+
+			<ImageButton
+				android:id="@+id/drawer_imgBTN"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentStart="true"
+				android:layout_alignParentTop="true"
+				android:layout_marginStart="10dp"
+				android:layout_marginTop="15dp"
+				android:background="@color/white"
+				app:srcCompat="@drawable/ic_baseline_menu_24"
+				tools:ignore="ContentDescription" />
+
+			<TextView
+				android:id="@+id/textvshivclothhedar"
+				android:layout_width="150dp"
+				android:layout_height="wrap_content"
+				android:layout_alignParentTop="true"
+				android:layout_alignParentEnd="true"
+				android:layout_marginTop="15dp"
+				android:layout_marginEnd="116dp"
+				android:gravity="center"
+				android:text="@string/shiv_cloth_store"
+				android:textAlignment="center"
+				android:textAllCaps="true"
+				android:textColor="@color/black"
+				android:textSize="18sp" />
+
+			<ImageButton
+				android:id="@+id/IBaddtocart"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentTop="true"
+				android:layout_marginTop="15dp"
+				android:layout_marginEnd="15dp"
+				android:layout_toStartOf="@+id/btnlogout"
+				android:background="@color/white"
+				app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+
+			<ImageButton
+				android:id="@+id/btnlogout"
+				android:layout_width="25dp"
+				android:layout_height="wrap_content"
+				android:layout_alignParentEnd="true"
+				android:layout_marginTop="15dp"
+
+
+				android:layout_marginEnd="11dp"
+				android:background="@color/white"
+				app:srcCompat="@drawable/ic_baseline_logout_24" />
+
+			<!--<androidx.appcompat.widget.SearchView
+				android:id="@+id/SVsearchvivew"
+				android:layout_width="26dp"
+				android:layout_height="25dp"
+				android:backgroundTint="@color/black"
+				android:layout_alignParentTop="true"
+				android:layout_marginTop="7dp"
+				android:layout_marginEnd="6dp"
+				android:layout_toStartOf="@+id/imageButton" />-->
+
+		</RelativeLayout>
+
+		<androidx.core.widget.NestedScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_below="@+id/RlTopView">
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+
+				<RelativeLayout
+					android:id="@+id/LlimgView"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="vertical">
+
+					<ImageView
+
+						android:layout_width="match_parent"
+						android:layout_height="200dp"
+						android:layout_alignParentStart="true"
+						android:layout_alignParentTop="true"
+						android:layout_marginStart="0dp"
+						android:scaleType="centerCrop"
+						android:src="@drawable/istok" />
+
+					<TextView
+						android:id="@+id/maintext"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="20dp"
+						android:text="@string/shiv_slogan"
+						android:textAlignment="center"
+						android:textColor="#681900"
+						android:textSize="24sp"
+						android:textStyle="bold" />
+
+					<Button
+						android:id="@+id/hedarshopnow"
+						android:layout_width="200dp"
+						android:layout_height="37dp"
+						android:layout_centerInParent="true"
+						android:background="@color/unvishibal"
+						android:gravity="center"
+						android:text="Shop now"
+						android:textStyle="bold" />
+
+					<TextView
+						android:id="@+id/mainhometext"
+						android:layout_width="match_parent"
+						android:layout_height="40dp"
+						android:layout_marginTop="200dp"
+						android:background="@color/white"
+						android:gravity="center"
+						android:paddingEnd="5dp"
+						android:paddingBottom="3dp"
+
+						android:text="@string/bigsline"
+						android:textAlignment="center"
+						android:textColor="#681900"
+						android:textSize="24sp"
+						android:textStyle="normal" />
+
+					<TextView
+						android:id="@+id/mainhometext2"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:layout_marginTop="240dp"
+						android:layout_marginEnd="0dp"
+						android:background="@color/white"
+						android:gravity="center"
+						android:paddingEnd="7dp"
+
+						android:paddingBottom="5dp"
+						android:text="@string/bigslinelong"
+						android:textAlignment="center"
+						android:textColor="#681900"
+						android:textSize="15sp"
+						android:textStyle="normal" />
+
+
+				</RelativeLayout>
+
+				<RelativeLayout
+					android:id="@+id/RlGrideView"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_below="@+id/LlimgView"
+					android:layout_marginStart="5dp"
+					android:layout_marginEnd="5dp">
+
+					<androidx.recyclerview.widget.RecyclerView
+						android:id="@+id/rvProductList"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:layout_centerHorizontal="true"
+						app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+						app:spanCount="2"
+						tools:itemCount="2"
+						tools:listitem="@layout/recyclerview_row" />
+
+					<ProgressBar
+						android:id="@+id/PBprogressBar"
+						android:layout_width="40dp"
+						android:layout_height="40dp"
+						android:layout_alignParentStart="true"
+						android:layout_gravity="center|top"
+						android:layout_marginStart="150dp"
+						android:layout_marginTop="5dp"
+						android:visibility="gone" />
+
+				</RelativeLayout>
+
+			</RelativeLayout>
+
+		</androidx.core.widget.NestedScrollView>
+
+	</RelativeLayout>
+
+	<com.google.android.material.navigation.NavigationView
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:layout_gravity="start"
+		app:menu="@menu/activity_main_drawer" />
+
+</LinearLayout>
+
+
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+	<string name="app_name">Bulls Rent</string>
+	<string name="nation_wide_car_rental_app">Nation wide Car.rental app</string>
+	<string name="email">email</string>
+	<string name="Go">GO</string>
+	<string name="forget_password">Forget Password?</string>
+	<string name="new_user_sign_up">New User? SIGN UP</string>
+	<string name="Hello_There_welcome_back">Hello There,Welcome Back</string>
+	<string name="signup_to_continue">SignUp to Continue</string>
+	<string name="password">Password</string>
+	<string name="login">LOGIN</string>
+	<string name="password_update">Password Update</string>
+	<string name="otp_code_text">co\nde</string>
+	<string name="shiv_cloth_store">CLOTH STORE</string>
+	<string name="shiv_cloth_store_RS">Rs. 1000.00</string>
+	<string name="shiv_slogan">Industrial design\n meets fashion.</string>
+	<string name="bigsline">Cloths store</string>
+	<string name="bigslinelong">It`s not only cloths but it was Brand</string>
+	<string name="yyyy900"> <strike>$900</strike> </string>
+
+	<string name="detailed_desc">to_clean_the_finish_on_your_wood_furniture_just_use_warm_water_cleaning_furniture_with_water_won_t_hurt_it_much_just_be_careful_not_to_soak_it_wipe_the_dirt_off_the_surface_with_soft_cloths_or_paper_towels_until_they_come_up_fairly_clean_avoid_direct_sunlight_direct_water_splashing_do_not_use_harsh_chemicals_or_abrasive_clothes_while_cleaning_do_not_scratch_with_sharp_objects</string>
+	<string name="sign_up">Sign Up</string>
+	<string name="already_have_an_account_login">Already have an account? Login</string>
+	<string name="signup_to_start_your_new_journey">SignUp to Start your new Journey</string>
+
+	<!-- to toggle the open close button of the navigation drawer -->
+	<string name="navopen">Open</string>
+	<string name="navclose">Close</string>
+	<string name="add_address">add_address</string>
+	<string name="phone_number">phone_number</string>
+	<string name="pin_code">pin_code</string>
+	<string name="city">city</string>
+	<string name="address_lane">address_lane</string>
+	<string name="ad_add_address">add_address</string>
+	<string name="create_address">Create Address</string>
+	<string name="resetyourpassword">Please provide the email associated with your account for which you wish to reset your password.</string>
+	<string name="s">S</string>
+	<string name="m">M</string>
+	<string name="size">size :</string>
+	<string name="l">L</string>
+	<string name="_50"> 50</string>
+	<string name="rupy"> ₹ </string>
+	<string name="price">Price</string>
+	<string name="htmlbody">body</string>
+	<string name="product_detailed">Product Detailed</string>
+	<string name="product_name">Product name</string>
+	<string name="color">Color :</string>
+	<string name="add_to_cart">Add to cart</string>
+	<string name="_l">L</string>
+	<string name="quantity">Quantity :</string>
+	<string name="product_detailsss">Product Details</string>
+	<string name="_0"> 0 </string>
+	<string name="name">Name</string>
+	<string name="currentname">currentname</string>
+	<string name="allan_man_tshirt">Allan Man Tshirt</string>
+	<string name="rs">RS</string>
+	<string name="sizesml">Size</string>
+	<string name="style">Style</string>
+	<string name="subtotal">Subtotal</string>
+	<string name="buy_now">buy now</string>
+	<string name="_1">1</string>
+	<string name="amount">Amount</string>
+	<string name="_905480_paytm">905480@_paytm</string>
+	<string name="upi_id">UPI ID</string>
+	<string name="cloth_store_test_upi_payment">cloth_store_test_upi_payment</string>
+	<string name="note">note</string>
+	<string name="krushang_parekh">krushang parekh</string>
+	<string name="name_">Name</string>
+	<string name="pay_now">Pay Now</string>
+
+
+</resources>
