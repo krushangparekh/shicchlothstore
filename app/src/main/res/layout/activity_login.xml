@@ -60,8 +60,10 @@
 					<EditText
 						android:id="@+id/mEmailedittext"
 						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
+						android:layout_height="42dp"
 						android:text=""
+						android:hint="@string/email"
+						android:background="@drawable/box"
 						android:maxLength="32"
 						android:textSize="15dp"
 						android:paddingStart="20dp"
@@ -85,10 +87,12 @@
 						<EditText
 							android:id="@+id/passwordedittext"
 							android:layout_width="match_parent"
-							android:layout_height="wrap_content"
-							android:backgroundTint="@color/black"
+							android:layout_height="42dp"
 							android:importantForAutofill="yes"
 							android:text=""
+							android:hint="@string/password"
+							android:background="@drawable/box"
+
 							android:inputType="number"
 							android:textSize="15dp"
 							android:maxLength="10"

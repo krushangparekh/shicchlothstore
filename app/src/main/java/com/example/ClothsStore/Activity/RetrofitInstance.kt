@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 
 class RetrofitInstance {
     companion object {
-       val BASE_URL: String = "http://192.168.1.47:8000/api/"
+       val BASE_URL: String = "http://161.97.170.81:2023/api/"
 
         val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
             this.level = HttpLoggingInterceptor.Level.BODY

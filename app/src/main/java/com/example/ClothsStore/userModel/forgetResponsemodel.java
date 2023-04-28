@@ -27,7 +27,7 @@ public class forgetResponsemodel {
             this.customerRecover = customerRecover;
         }
     }
-    public class CustomerRecover {
+    public static class CustomerRecover {
 
         @SerializedName("customerUserErrors")
         @Expose

@@ -36,7 +36,7 @@ class Home_page : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     private lateinit var PBprogressBar: ProgressBar
     private lateinit var IBaddtocart: ImageButton
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "ApplySharedPref")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)

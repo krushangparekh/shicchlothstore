@@ -38,7 +38,6 @@ class ForgetPassword : AppCompatActivity() {
                 ETEmailedittext.error = "Please enter a valid email address"
                 return@setOnClickListener
             }
-
             val retIn = RetrofitInstance.getRetrofitInstance().create(ApiInterface::class.java)
             retIn.loginResponsemodel(ETEmailedittext.text.toString())
                 .enqueue(object : Callback<forgetResponsemodel> {
@@ -58,15 +57,17 @@ class ForgetPassword : AppCompatActivity() {
                         ///Intent///
                         startActivity(Intent(this@ForgetPassword, Login::class.java))
 
-
                         Toast.makeText(
                             applicationContext,
-                            "ForgetPassword successful!",
+                            "ForgetPassword successful! Plz Open Your Email",
                             Toast.LENGTH_SHORT
                         )
                             .show()
                     }
-                })
+                }
+
+            )
+
         }
     }
 }
