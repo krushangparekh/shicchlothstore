@@ -85,8 +85,6 @@ class DatabaseHelper(context: Context) :
 //        return productListModel
 
 
-
-
 interface Plant {
 }
 

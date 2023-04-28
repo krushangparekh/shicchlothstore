@@ -124,7 +124,7 @@
 				android:id="@+id/etConfirmPassword"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_marginBottom="5dp"
+				android:layout_marginBottom="10dp"
 				android:background="@drawable/box"
 				android:hint="confirm password "
 				android:importantForAutofill="yes"
@@ -141,17 +141,18 @@
 
 		<Button
 			android:id="@+id/SIGNUPbtn"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginBottom="9dp"
+			android:layout_width="311dp"
+			android:layout_height="42dp"
 			android:layout_marginTop="5dp"
-			android:background="@drawable/box"
-			android:backgroundTint="@color/backgroundColor"
-			android:padding="9sp"
-			android:textSize="15dp"
+			android:layout_marginBottom="9dp"
+			android:layout_gravity="center"
+			android:background="@drawable/boxblack"
+			android:backgroundTint="#F3247FE6"
 			android:rotationX="2"
+			android:textColor="@color/white"
 			android:shadowColor="@color/black"
-			android:text="@string/sign_up" />
+			android:text="@string/sign_up"
+			android:textSize="15dp" />
 		<TextView
 			android:id="@+id/alredyloginBTN"
 			android:layout_width="match_parent"

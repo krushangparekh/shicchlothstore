@@ -21,15 +21,14 @@
 		app:subtitleTextColor="@color/black"
 		tools:ignore="MissingConstraints" />
 
-
 	<ImageView
 		android:id="@+id/imageView3"
 		android:layout_width="308dp"
 		android:layout_height="189dp"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.434"
+		app:layout_constraintHorizontal_bias="0.495"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/add_address_toolbar"
+		app:layout_constraintTop_toBottomOf="@+id/add_PaymentDetailed"
 		app:srcCompat="@drawable/atmcard" />
 
 	<TextView

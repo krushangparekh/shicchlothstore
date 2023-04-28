@@ -26,13 +26,13 @@
 				android:src="@drawable/fashionmain" />
 
 			<TextView
-				android:layout_width="wrap_content"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="10dp"
 				android:padding="5dp"
 				android:paddingStart="10dp"
 				android:text="@string/Hello_There_welcome_back"
-				android:textColor="@color/white"
+				android:textColor="#F3247FE6"
 				android:textSize="35sp"
 				android:transitionName="logo_text" />
 
@@ -114,39 +114,43 @@
 				android:text="@string/forget_password"
 				android:textSize="12dp" />
 
-			<Button
-				android:id="@+id/BTNsignin"
+			<LinearLayout
 				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_gravity="center"
-				android:layout_marginTop="0dp"
-				android:layout_marginBottom="5dp"
-				android:background="@drawable/box"
-				android:backgroundTint="@color/backgroundColor"
-				android:shadowColor="@color/black"
-				android:text="Sign In"
-				android:textColor="#000000" />
+				android:layout_height="200dp"
+				android:orientation="vertical">
 
-			<Button
-				android:id="@+id/text_new_user"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="29dp"
-				android:layout_marginTop="5dp"
-				android:layout_marginEnd="29dp"
-				android:background="@drawable/box"
-				android:backgroundTint="@color/backgroundColor"
-				android:padding="9sp"
-				android:shadowColor="@color/black"
-				android:text="@string/new_user_sign_up" />
 
-			<ProgressBar
-				android:id="@+id/progressBar"
-				android:layout_width="40dp"
-				android:layout_height="40dp"
-				android:visibility="gone"
-				android:layout_marginTop="20dp"
-				android:layout_gravity="center"/>
+				<Button
+					android:id="@+id/BTNsignin"
+					android:layout_width="311dp"
+					android:layout_height="42dp"
+					android:layout_gravity="center"
+					android:layout_margin="20dp"
+					android:layout_marginBottom="5dp"
+					android:background="@drawable/box"
+					android:backgroundTint="#F3247FE6"
+					android:text="Sign In"
+					android:textColor="@color/white" />
+
+				<Button
+					android:id="@+id/text_new_user"
+					android:layout_width="260dp"
+					android:layout_height="40dp"
+					android:layout_gravity="center"
+					android:background="@drawable/box"
+					android:text="@string/new_user_sign_up"
+					android:textColor="@color/black" />
+
+
+				<ProgressBar
+					android:id="@+id/progressBar"
+					android:layout_width="40dp"
+					android:layout_height="40dp"
+					android:layout_gravity="center"
+					android:layout_marginTop="20dp"
+					android:visibility="visible" />
+			</LinearLayout>
+
 
 
 		</LinearLayout>

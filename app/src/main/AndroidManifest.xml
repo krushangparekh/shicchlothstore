@@ -3,31 +3,35 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	package="com.example.ClothsStore">
 
+
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
-
 	<application
 		android:allowBackup="true"
-		android:icon="@drawable/clothinglo"
+		android:icon="@drawable/main"
 		android:label="@string/app_name"
 		android:networkSecurityConfig="@xml/security"
-		android:roundIcon="@drawable/clothinglo"
+		android:roundIcon="@drawable/main"
 		android:supportsRtl="true"
 		android:theme="@style/Theme.ClothsStore"
 		android:usesCleartextTraffic="true"
 		tools:targetApi="31">
 		<activity
-			android:name=".PaymentActivity"
-			android:exported="false">
-			<meta-data
-				android:name="android.app.lib_name"
-				android:value="" />
+			android:name=".Activity.GooglePay"
+			android:exported="false"
+			android:theme="@style/AppTheme.NoActionBar">
+		</activity>
+		<activity
+			android:name=".Activity.PaymentActivity"
+			android:exported="false"
+			android:theme="@style/AppTheme.NoActionBar">
+
 		</activity>
 		<activity
 			android:name=".ShippingAddressActivity"
 			android:exported="false"
-			android:theme="@style/AppTheme.NoActionBar"></activity>
+			android:theme="@style/AppTheme.NoActionBar" />
 		<activity
 			android:name=".My_Cart"
 			android:exported="false"

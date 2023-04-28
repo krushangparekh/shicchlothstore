@@ -3,13 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
 }
-/*apollo {
-    // instruct the compiler to generate Kotlin models
-    generateKotlinModels.set(true)
-    packageNamesFromFilePaths()
-}*/
-
-
 android {
     namespace 'com.example.ClothsStore'
     compileSdk 33
@@ -49,12 +42,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-/*    implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
-    implementation 'com.google.firebase:firebase-analytics:21.2.0'
-    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.4.4'
-    implementation 'com.google.firebase:firebase-database:20.1.0'*/
-
     implementation 'com.google.androidbrowserhelper:billing:1.0.0-alpha09'
     implementation 'com.google.android.gms:play-services-analytics-impl:18.0.2'
     implementation 'androidx.room:room-common:2.5.0'

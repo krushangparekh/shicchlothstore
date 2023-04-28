@@ -47,7 +47,6 @@ class GooglePay : AppCompatActivity() {
             }
         }
     }
-
     fun payUsingUpi(name: String, upiId: String, note: String, amount: String) {
         Log.e("main ", "name $name--up--$upiId--$note--$amount")
         val uri = Uri.parse("upi://pay").buildUpon()
