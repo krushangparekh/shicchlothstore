@@ -3,7 +3,9 @@ package com.example.ClothsStore
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
+import android.util.Patterns
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -29,12 +31,12 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        buttonforgetpassword = findViewById(R.id.buttonforgetpassword)     //forgetbutton
-        BTNsignin = findViewById(R.id.BTNsignin)                             // signin button
-        text_new_user = findViewById(R.id.text_new_user)                     //   new user button
+        buttonforgetpassword = findViewById(R.id.buttonforgetpassword)
+        BTNsignin = findViewById(R.id.BTNsignin)
+        text_new_user = findViewById(R.id.text_new_user)
 
-        mEmailedittext = findViewById(R.id.mEmailedittext)                 //   Email
-        passwordedittext = findViewById(R.id.passwordedittext)             //  password
+        mEmailedittext = findViewById(R.id.mEmailedittext)
+        passwordedittext = findViewById(R.id.passwordedittext)
         progressBar = findViewById(R.id.progressBar)
 
         //intent   forget button
@@ -45,12 +47,25 @@ class Login : AppCompatActivity() {
         }
         //intent   new user button
         BTNsignin.setOnClickListener {
+            val str_mEmailedittext = mEmailedittext.text.toString().trim()
+            val str_passwordedittext = passwordedittext.text.toString().trim()
 
             ////log how data pass on click
             Log.e("Data 1:::", "mEmailedittext:::" + mEmailedittext.text.toString())
             Log.e("Data 2:::", "mEmailedittext:::" + passwordedittext.text.toString().trim().length)
 
-            if (mEmailedittext.text.toString().trim().length === 0) {
+            if (!Patterns.EMAIL_ADDRESS.matcher(str_mEmailedittext.toString()).matches()) {
+                mEmailedittext.error = "Please enter your email address"
+                return@setOnClickListener
+            }
+            if (TextUtils.isEmpty(str_passwordedittext.toString())) {
+                passwordedittext.error = "Please enter your password"
+                 return@setOnClickListener
+            } else
+
+            {
+
+               /* if (mEmailedittext.text.toString().trim().length === 0) {
                 mEmailedittext.error = "Email is not entered"
                 mEmailedittext.requestFocus()
 
@@ -65,8 +80,9 @@ class Login : AppCompatActivity() {
             } else if (passwordedittext.text.toString().trim().length === 0) {
                 passwordedittext.error = "Password is not entered"
                 passwordedittext.requestFocus()
-            } else {
+            } else
 
+            { */
                 progressBar.visibility = View.VISIBLE
 
                 val retIn = RetrofitInstance.getRetrofitInstance().create(ApiInterface::class.java)
