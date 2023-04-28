@@ -55,11 +55,10 @@ class DatabaseHelper(context: Context) :
     fun getCartItems(): ArrayList<Product> {
         val productListModel : ArrayList<Product> = arrayListOf()
         val db = readableDatabase
-//        val db = dbHelper.readableDatabase
 
         val query = "SELECT * FROM $TABLE_NAME"
         val cursor = db.rawQuery(query, null)
-//
+
 //        Log.e("PRODUCT_cursor$$", db.rawQuery(query, null))
 //        Log.e("PRODUCT_cursor$$", db.rawQuery(query, null))
 //        val cursor = db.rawQuery("SELECT * FROM $TABLE_NAME", null)

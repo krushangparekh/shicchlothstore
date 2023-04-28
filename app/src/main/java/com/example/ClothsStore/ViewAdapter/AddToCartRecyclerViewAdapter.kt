@@ -10,13 +10,17 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ClothsStore.DATABASE.DatabaseHelper
 import com.example.ClothsStore.R
 import com.example.ClothsStore.productListModel
 import com.squareup.picasso.Picasso
 
 class AddToCartRecyclerViewAdapter(
-    var context: Context, private val Addtocartlist: ArrayList<productListModel>
-) : RecyclerView.Adapter<AddToCartRecyclerViewAdapter.ViewHolder>() {
+    var context: Context, private val Addtocartlist: ArrayList<productListModel>) : RecyclerView.Adapter<AddToCartRecyclerViewAdapter.ViewHolder>() {
+    private val sqLiteDatabase: DatabaseHelper
+        get() {
+            TODO()
+        }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -24,7 +28,6 @@ class AddToCartRecyclerViewAdapter(
         val listItem: View = layoutInflater.inflate(R.layout.mycard_item, parent, false)
         return ViewHolder(listItem)
     }
-
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.currentname.text = Addtocartlist[0].toString()
@@ -37,11 +40,9 @@ class AddToCartRecyclerViewAdapter(
             // add your code here for handling click events on the item
         }
     }
-
     override fun getItemCount(): Int {
         return if (Addtocartlist.isNotEmpty()) itemCount.also { product -> } else 0
     }
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var IVcartimage: ImageView = itemView.findViewById<View>(R.id.IVcartimage) as ImageView
         var currentname: TextView = itemView.findViewById<View>(R.id.currentname) as TextView

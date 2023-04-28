@@ -25,6 +25,8 @@ class GooglePay : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.googlepay)
+
+
         send = findViewById<View>(R.id.send) as Button
         amount = findViewById<View>(R.id.amount_et) as EditText
         note = findViewById<View>(R.id.note) as EditText

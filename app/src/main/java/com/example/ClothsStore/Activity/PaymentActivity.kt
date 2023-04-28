@@ -24,9 +24,8 @@ class PaymentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment)
         //Toolbar
-        add_PaymentDetailed = findViewById(R.id.add_PaymentDetailed)
         setSupportActionBar(add_PaymentDetailed)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+//        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         var amount = 0.0
         amount = intent.getDoubleExtra("amount", 0.0)
         subTotal = findViewById(R.id.sub_total)

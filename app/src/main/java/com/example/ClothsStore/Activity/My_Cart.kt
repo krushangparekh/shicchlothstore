@@ -23,7 +23,7 @@ class My_Cart : AppCompatActivity() {
     var recyclerView: RecyclerView? = null
 
     val dbHelper = DatabaseHelper(this)
-    val cartItems: ArrayList<Product> = dbHelper.getCartItems()
+//    val cartItems: ArrayList<Product> = dbHelper.getCartItems()
 
 
     @SuppressLint("MissingInflatedId")

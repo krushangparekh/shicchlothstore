@@ -9,6 +9,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.example.ClothsStore.Activity.GooglePay
+import com.example.ClothsStore.Activity.PaymentActivity
+import java.util.regex.Pattern
 
 class  AddAddressPage : AppCompatActivity() {
     var etaddFirstName: EditText? = null
@@ -24,6 +26,7 @@ class  AddAddressPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_address_page)
+
         BTNContinuetopayment = findViewById(R.id.BTNContinuetopayment)
         etaddFirstName = findViewById(R.id.etaddFirstName)
         etaddLastName = findViewById(R.id.etaddLastName)
@@ -71,14 +74,25 @@ class  AddAddressPage : AppCompatActivity() {
             if (etaddFirstName.isNotEmpty() && etaddLastName.isNotEmpty() && etaddAddressLine1.isNotEmpty() && etaddAddressLine2.isNotEmpty()
                 && etaddCity.isNotEmpty() && etaddCity.isNotEmpty() && etaddState.isNotEmpty() && etaddCountry.isNotEmpty()&& etaddPINcode.isNotEmpty())
             {
+                val intent = Intent(this@AddAddressPage, PaymentActivity::class.java)
+                startActivity(intent)
                 val map: MutableMap<String, String> = HashMap()
                 map["userAddress"] = final_address
             } else {
                 Toast.makeText(this@AddAddressPage, "Kindly Fill All Field", Toast.LENGTH_SHORT).show()
             }
-            val intent = Intent(this@AddAddressPage, GooglePay::class.java)
-            startActivity(intent)
+
+
 
         }
+    }
+    ///Pattern email
+    fun isValidEmailAddress(email: String?): Boolean {
+        val ePattern =
+            "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$"
+        val p = Pattern.compile(ePattern)
+        val m = p.matcher(email!!)
+
+        return m.matches()
     }
 }
