@@ -19,7 +19,7 @@ class My_Cart : AppCompatActivity() {
 
     var arrayList: ArrayList<productListModel> = ArrayList()
     private lateinit var buy_nowcart: TextView
-    val AddToCartRecyclerViewAdapter: AddToCartRecyclerViewAdapter? = null
+    var addToCartRecyclerViewAdapter: AddToCartRecyclerViewAdapter? = null
     var recyclerView: RecyclerView? = null
 
     val dbHelper = DatabaseHelper(this)
@@ -37,12 +37,11 @@ class My_Cart : AppCompatActivity() {
         var cursor: ArrayList<Product> = dbHelper.getCartItems()
         Log.e("cart Data", Gson().toJson(dbHelper.getCartItems()).toString())
         buy_nowcart = findViewById(R.id.buy_nowcart)
-        val gridLayoutManager = GridLayoutManager(this, 1)
-        val AddToCartRecyclerViewAdapter = AddToCartRecyclerViewAdapter(this@My_Cart, arrayList)
-        recyclerView?.layoutManager = gridLayoutManager
-        recyclerView?.apply {
-            adapter = AddToCartRecyclerViewAdapter
-        }
+       // val gridLayoutManager = GridLayoutManager(this, 1)
+       // val AddToCartRecyclerViewAdapter = AddToCartRecyclerViewAdapter(this@My_Cart, arrayList)
+        addToCartRecyclerViewAdapter  = AddToCartRecyclerViewAdapter(this,arrayList)
+        recyclerView?.adapter = addToCartRecyclerViewAdapter
+
         buy_nowcart.setOnClickListener {
 
             val intent = Intent(this@My_Cart, AddAddressPage::class.java)

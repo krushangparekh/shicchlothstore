@@ -23,7 +23,6 @@ class DatabaseHelper(context: Context) :
         private const val KEY_SIZE = "size"
         private const val KEY_COLOR = "color"
     }
-
     override fun onCreate(db: SQLiteDatabase?) {
         val CREATE_CONTACTS_TABLE =
             ("CREATE TABLE " + TABLE_NAME + "(" + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_NAME + " TEXT, " + KEY_PRICE + " TEXT, " + KEY_SIZE + " TEXT, " + KEY_COLOR + " LONG)")
@@ -46,7 +45,6 @@ class DatabaseHelper(context: Context) :
         }
         db.insertWithOnConflict(TABLE_NAME, null, productListModel, 0)
     }
-
     fun removeFromCart(productId: Int) {
         val db = writableDatabase
         db.delete(TABLE_NAME, "$KEY_ID = ?", arrayOf(productId.toString()))
@@ -63,8 +61,6 @@ class DatabaseHelper(context: Context) :
 //        Log.e("PRODUCT_cursor$$", db.rawQuery(query, null))
 //        val cursor = db.rawQuery("SELECT * FROM $TABLE_NAME", null)
 
-//        with(cursor) {`
-//            while (moveToNext()) {
         while (cursor.moveToNext()) {
             val id = cursor.getInt(cursor.getColumnIndexOrThrow(KEY_ID))
             val name = cursor.getString(cursor.getColumnIndexOrThrow(KEY_NAME))
