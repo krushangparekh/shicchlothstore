@@ -1,4 +1,4 @@
-package com.example.ClothsStore
+package com.example.ClothsStore.activity
 
 data class productListModel(
     val `data`: List<Datas>,
@@ -72,3 +72,5 @@ data class Option(
     val variant_ids: List<Any>,
     val width: Int
 )
+
+

@@ -7,9 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
-import com.example.ClothsStore.Activity.GooglePay
-import com.example.ClothsStore.Activity.PaymentActivity
+import com.example.ClothsStore.activity.PaymentActivity
 import java.util.regex.Pattern
 
 class  AddAddressPage : AppCompatActivity() {

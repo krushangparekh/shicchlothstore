@@ -1,5 +1,6 @@
 package com.example.ClothsStore
 
+import com.example.ClothsStore.activity.productListModel
 import com.example.ClothsStore.ViewAdapter.ProductDetailedModel1
 import com.example.ClothsStore.userModel.Datalogin
 import com.example.ClothsStore.userModel.MySignupmodel

@@ -11,7 +11,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
-import com.example.ClothsStore.DATABASE.DatabaseHelper
+import com.example.ClothsStore.database.DatabaseHelper
 import com.example.ClothsStore.ViewAdapter.MyCustomPagerAdapter
 import com.example.ClothsStore.ViewAdapter.ProductDetailedModel1
 import com.google.android.gms.analytics.ecommerce.Product

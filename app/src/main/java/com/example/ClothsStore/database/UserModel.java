@@ -1,4 +1,4 @@
-package com.example.ClothsStore.DATABASE;
+package com.example.ClothsStore.database;
 
 public class UserModel {
 

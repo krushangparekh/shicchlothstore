@@ -1,4 +1,4 @@
-package com.example.ClothsStore.Activity
+package com.example.ClothsStore.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent

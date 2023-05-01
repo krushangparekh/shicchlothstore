@@ -3,7 +3,6 @@ package com.example.ClothsStore.ViewAdapter
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ClothsStore.R
 import com.example.ClothsStore.detailed_page
-import com.example.ClothsStore.productListModel
+import com.example.ClothsStore.activity.productListModel
 import com.squareup.picasso.Picasso
 
 

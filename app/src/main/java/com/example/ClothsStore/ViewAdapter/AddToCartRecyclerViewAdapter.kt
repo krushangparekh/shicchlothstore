@@ -10,9 +10,9 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ClothsStore.DATABASE.DatabaseHelper
+import com.example.ClothsStore.database.DatabaseHelper
 import com.example.ClothsStore.R
-import com.example.ClothsStore.productListModel
+import com.example.ClothsStore.activity.productListModel
 import com.squareup.picasso.Picasso
 
 class AddToCartRecyclerViewAdapter(
@@ -21,13 +21,11 @@ class AddToCartRecyclerViewAdapter(
         get() {
             TODO()
         }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
 
         val listItem: View = layoutInflater.inflate(R.layout.mycard_item, parent, false)
-        return ViewHolder(listItem)
-    }
+        return ViewHolder(listItem) }
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.currentname.text = Addtocartlist[0].toString()
@@ -41,16 +39,16 @@ class AddToCartRecyclerViewAdapter(
         }
     }
     override fun getItemCount(): Int {
-        return if (Addtocartlist.isNotEmpty()) itemCount.also { product -> } else 0
+        return if (Addtocartlist.isNotEmpty()) Addtocartlist.size else 0
     }
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var IVcartimage: ImageView = itemView.findViewById<View>(R.id.IVcartimage) as ImageView
         var currentname: TextView = itemView.findViewById<View>(R.id.currentname) as TextView
         var currentRs: TextView = itemView.findViewById<View>(R.id.currentRs) as TextView
-        var mycartitemview: RelativeLayout =
-            itemView.findViewById<View>(R.id.mycartitemview) as RelativeLayout
+        var mycartitemview: RelativeLayout =itemView.findViewById<View>(R.id.mycartitemview) as RelativeLayout
     }
 }
+
 
 
 /*

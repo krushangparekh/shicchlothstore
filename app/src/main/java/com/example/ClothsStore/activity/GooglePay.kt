@@ -1,4 +1,4 @@
-package com.example.ClothsStore.Activity
+package com.example.ClothsStore.activity
 
 import android.content.Context
 import android.content.Intent
@@ -136,15 +136,11 @@ class GooglePay : AppCompatActivity() {
                 Toast.makeText(this@GooglePay, "Transaction successful.", Toast.LENGTH_SHORT).show()
                 Log.e("UPI", "payment successfull: $approvalRefNo")
             } else if ("Payment cancelled by user." == paymentCancel) {
-                Toast.makeText(this@GooglePay, "Payment cancelled by user.", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(this@GooglePay, "Payment cancelled by user.", Toast.LENGTH_SHORT).show()
                 Log.e("UPI", "Cancelled by user: $approvalRefNo")
             } else {
                 Toast.makeText(
-                    this@GooglePay,
-                    "Transaction failed.Please try again",
-                    Toast.LENGTH_SHORT
-                ).show()
+                    this@GooglePay, "Transaction failed.Please try again", Toast.LENGTH_SHORT).show()
                 Log.e("UPI", "failed payment: $approvalRefNo")
             }
         } else {
