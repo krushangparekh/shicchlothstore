@@ -8,9 +8,11 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ClothsStore.UI.MyProfileFragment
 import com.example.ClothsStore.activity.productListModel
 import com.example.ClothsStore.ViewAdapter.RecyclerViewAdapter
 import com.google.android.material.navigation.NavigationView
@@ -20,15 +22,6 @@ import retrofit2.Response
 
 class Home_page : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    ///////navigation bar start
-//    private lateinit var drawerLayout: DrawerLayout
-    private lateinit var mdrawer_layout: DrawerLayout
-//    private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
-    private lateinit var drawer_imgBTN: ImageButton
-//    //--end---//
-    private lateinit var drawerLayout:DrawerLayout
-    private lateinit var navView:NavigationView
-
     var arrayList: ArrayList<productListModel> = ArrayList()
     val recyclerViewAdapter: RecyclerViewAdapter? = null
     var recyclerView: RecyclerView? = null
@@ -36,43 +29,65 @@ class Home_page : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     private lateinit var btnlogout: ImageButton
     private lateinit var PBprogressBar: ProgressBar
     private lateinit var IBaddtocart: ImageButton
+    private lateinit var drawer_imgBTN: ImageButton
+    private lateinit var drawer : DrawerLayout
+    private lateinit var navigationView : NavigationView
+    private lateinit var hedarshopnow : Button
 
-    @SuppressLint("MissingInflatedId", "ApplySharedPref")
+    @SuppressLint("MissingInflatedId", "ApplySharedPref", "RtlHardcoded")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
-        
 
         initilization()
         val textvshivclothhedar: TextView = findViewById(R.id.textvshivclothhedar)
-        val hedarshopnow: Button = findViewById(R.id.hedarshopnow)
+        hedarshopnow = findViewById(R.id.hedarshopnow)
+        navigationView = findViewById(R.id.navigationView)
         btnlogout = findViewById(R.id.btnlogout)
         PBprogressBar = findViewById(R.id.PBprogressBar)
         IBaddtocart = findViewById(R.id.IBaddtocart)
+        drawer_imgBTN = findViewById(R.id.drawer_imgBTN)
+        drawer = findViewById(R.id.drawer)
+        drawer_imgBTN.setOnClickListener{
+            if (drawer.isDrawerOpen(GravityCompat.START)){
+                drawer.closeDrawer(GravityCompat.START)
+            } else{
+                drawer.openDrawer(GravityCompat.START)
+            }
+        }
+        ///navigationView item
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> {
+                    Toast.makeText(this, "My Home", Toast.LENGTH_SHORT).show()
+                    drawer.closeDrawer(GravityCompat.START)
+                    val intent = Intent(this@Home_page, Home_page::class.java)
+                    true
 
+                }
+                R.id.nav_profile -> {
+                    Toast.makeText(this, "My Profile", Toast.LENGTH_SHORT).show()
+                    drawer.closeDrawer(GravityCompat.START)
+                    val intent = Intent(this@Home_page, MyProfileFragment::class.java)
+
+                    true
+                }
+                R.id.nav_myorder -> {
+                    Toast.makeText(this, "My Order", Toast.LENGTH_SHORT).show()
+                    drawer.closeDrawer(GravityCompat.START)
+                    true
+                }
+                else -> {
+                    false
+                }
+            }
+        }
         val gridLayoutManager = GridLayoutManager(this, 2)
         val recyclerViewAdapter = RecyclerViewAdapter(this@Home_page, arrayList)
         recyclerView?.layoutManager = gridLayoutManager
         recyclerView?.apply {
             adapter = recyclerViewAdapter
         }
-        /*  drawerLayout = findViewById(R.id.my_drawer_layout)
-        actionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.navopen, R.string.navclose)
-
-        drawerLayout.addDrawerListener(actionBarDrawerToggle)
-        actionBarDrawerToggle.syncState()
-        //////////////////// end
-
-        ////////////drawer_button call navigation bar
-        val drawer_button = findViewById<ImageButton>(R.id.drawer_button);
-        drawer_button.setOnClickListener {
-            if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                drawerLayout.closeDrawer(GravityCompat.START)
-            } else {
-                drawerLayout.openDrawer(GravityCompat.START)
-            }
-
-        }*/
 
         IBaddtocart.setOnClickListener {
             val intent = Intent(this@Home_page, My_Cart::class.java)
@@ -84,8 +99,9 @@ class Home_page : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         }
 
         hedarshopnow.setOnClickListener {
-            val intent = Intent(this@Home_page, Home_page::class.java)
-            startActivity(intent)
+//            val intent = Intent(this@Home_page, Home_page::class.java)
+            val intent = Intent(this@Home_page, MyProfileFragment::class.java)
+            (intent)
         }
         btnlogout.setOnClickListener {
             val sharedPreference = getSharedPreferences("MySharedPref", Context.MODE_PRIVATE)
