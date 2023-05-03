@@ -9,16 +9,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ClothsStore.My_Cart
-import com.example.ClothsStore.database.DatabaseHelper
 import com.example.ClothsStore.R
-import com.example.ClothsStore.activity.productListModel
+import com.example.ClothsStore.activity.Product
 import com.squareup.picasso.Picasso
 
 class AddToCartRecyclerViewAdapter(
     var context: Context,
-    private val Addtocartlist: ArrayList<productListModel>, myCart: My_Cart) : RecyclerView.Adapter<AddToCartRecyclerViewAdapter.ViewHolder>() {
+    private val Addtocartlist: ArrayList<Product>, myCart: My_Cart) : RecyclerView.Adapter<AddToCartRecyclerViewAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
 
@@ -28,11 +28,10 @@ class AddToCartRecyclerViewAdapter(
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.currentname.text = Addtocartlist[0].toString()
-        holder.currentRs.text = "Rs. " + Addtocartlist[0].toString()
-        Log.e("Datasssss:::", "Datasss:::" + Addtocartlist[0].toString())
-        Log.e("Datasgggg:::", "Datasssss:::" + Addtocartlist[0].toString())
-        Picasso.get().load(Addtocartlist[0].toString()).into(holder.IVcartimage)
+        holder.currentname.text = Addtocartlist!![position].name
+        holder.currentRs.text = "Rs. " + Addtocartlist[position].price
+        Log.e("Datasssss:::", "Datasss:::" + Addtocartlist[position].toString())
+        Picasso.get().load(Addtocartlist[position].imageUrl).into(holder.IVcartimage)
 
         holder.mycartitemview.setOnClickListener { view ->
             // add your code here for handling click events on the item
@@ -47,8 +46,8 @@ class AddToCartRecyclerViewAdapter(
         var IVcartimage: ImageView = itemView.findViewById<View>(R.id.IVcartimage) as ImageView
         var currentname: TextView = itemView.findViewById<View>(R.id.currentname) as TextView
         var currentRs: TextView = itemView.findViewById<View>(R.id.currentRs) as TextView
-        var mycartitemview: RelativeLayout =
-            itemView.findViewById<View>(R.id.mycartitemview) as RelativeLayout
+        var mycartitemview: CardView =
+            itemView.findViewById<View>(R.id.mycartitemview) as CardView
     }
 }
 

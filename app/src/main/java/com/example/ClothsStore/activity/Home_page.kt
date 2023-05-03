@@ -10,16 +10,15 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
-import androidx.core.widget.NestedScrollView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentContainer
 import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ClothsStore.UI.MyProfileFragment
 import com.example.ClothsStore.ViewAdapter.RecyclerViewAdapter
+import com.example.ClothsStore.activity.Datas
 import com.example.ClothsStore.activity.productListModel
 import com.google.android.material.navigation.NavigationView
 import retrofit2.Call
@@ -28,7 +27,7 @@ import retrofit2.Response
 
 class Home_page : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    var arrayList: ArrayList<productListModel> = ArrayList()
+    var arrayList: ArrayList<Datas> = ArrayList()
     val recyclerViewAdapter: RecyclerViewAdapter? = null
     var recyclerView: RecyclerView? = null
 
@@ -149,7 +148,7 @@ class Home_page : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
                 val response = response.body()
                 if (response != null) {
-                    arrayList.addAll(listOf(response))
+                    arrayList.addAll(response.data)
                     //recyclerViewAdapter.notifyDataSetChanged()
                     //                    Log.e("Data 5:::", "size:::"+arrayList.size )
                     val recyclerViewAdapter = RecyclerViewAdapter(this@Home_page, arrayList)

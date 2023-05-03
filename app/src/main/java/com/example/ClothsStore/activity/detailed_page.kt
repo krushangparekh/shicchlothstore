@@ -78,7 +78,7 @@ class detailed_page : AppCompatActivity() {
 
 
             val dbHelper = DatabaseHelper(this)
-            dbHelper.addToCart(getProductName.toString(), getProductRS.toString(),getProductSize.toString(), colorList[0], style = null )
+            dbHelper.addToCart(getProductName.toString(), getProductRS.toString(),getProductSize.toString(),ImagesList.get(0), colorList[0], style = null )
 
             val intent = Intent(this@detailed_page, My_Cart::class.java)
             startActivity(intent)

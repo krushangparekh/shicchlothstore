@@ -6,13 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ClothsStore.activity.productListModel
 import com.example.ClothsStore.database.DatabaseHelper
-import com.example.ClothsStore.database.Product
 import com.example.ClothsStore.ViewAdapter.AddToCartRecyclerViewAdapter
+import com.example.ClothsStore.activity.Product
 import com.google.gson.Gson
 
 class My_Cart : AppCompatActivity() {
@@ -41,7 +39,7 @@ class My_Cart : AppCompatActivity() {
         recyclerView = findViewById(R.id.cart_recycler)
 
 //        arrayList = dbHelper.addToCart()
-        addToCartRecyclerViewAdapter  = AddToCartRecyclerViewAdapter(this,arrayList, My_Cart())
+        addToCartRecyclerViewAdapter  = AddToCartRecyclerViewAdapter(this,cursor, My_Cart())
         recyclerView?.adapter = addToCartRecyclerViewAdapter
 
         buy_nowcart.setOnClickListener {

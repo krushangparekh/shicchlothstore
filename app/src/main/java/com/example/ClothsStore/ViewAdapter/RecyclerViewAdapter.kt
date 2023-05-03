@@ -11,12 +11,12 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ClothsStore.R
+import com.example.ClothsStore.activity.Datas
 import com.example.ClothsStore.detailed_page
-import com.example.ClothsStore.activity.productListModel
 import com.squareup.picasso.Picasso
 
 
-class RecyclerViewAdapter(var context: Context, private val dataList: ArrayList<productListModel>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class RecyclerViewAdapter(var context: Context, private val dataList: ArrayList<Datas>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -30,11 +30,11 @@ class RecyclerViewAdapter(var context: Context, private val dataList: ArrayList<
         Log.d("Data:::","position:::"+position)*/
 
 
-        holder.title.text = dataList[0].data[position].title
-        holder.price.text = "Rs. " + dataList[0].data[position].variants.get(0).price
+        holder.title.text = dataList[position].title
+        holder.price.text = "Rs. " + dataList[position].variants.get(0).price
 
         Picasso.get()
-            .load(dataList[0].data[position].image.src)
+            .load(dataList[position].image.src)
             .into(holder.rvproductimageurl);
 
 //        Log.d("url:::","url:::"+dataList[0].data[position].image.src)
@@ -47,19 +47,14 @@ class RecyclerViewAdapter(var context: Context, private val dataList: ArrayList<
 //            Log.e("image_id","image_id:::"+dataList[0].data[position].image)
 //            Log.e("product_type","product_type:::"+dataList[0].data[position].product_type)*/
 
-              val intent = Intent(context, detailed_page::class.java)
-                  intent.putExtra("id",""+dataList[0].data[position].id)
-/*                // intent.putExtra("title",""+dataList[0].data[position].title)
-               //   intent.putExtra("price",+dataList[0].data[position].)
-              //  intent.putExtra("id",dataList[0].data[position].id.)
-//                intent.putExtra("id",dataList[0].data[position].id )
-//                intent.putExtra("id",dataList[0].data[position].id )
-//                intent.putExtra("id",dataList[0].data[position].id )*/
+            val intent = Intent(context, detailed_page::class.java)
+            intent.putExtra("id",""+dataList[position].id)
+            intent.putExtra("DataObj",dataList[position])
               context.startActivity(intent)
         }
     }
     override fun getItemCount(): Int {
-        return if(dataList != null && dataList.size > 0) dataList.get(0).data.size
+        return if(dataList.isNotEmpty()) dataList.size
         else 0
 //        Log.e("size===",dataList.size.toString())
     }

@@ -24,7 +24,7 @@ data class Datas(
     val updated_at: String,
     val variants: List<Variant>,
     val vendor: String
-)
+) : java.io.Serializable
 data class Variant(
     val admin_graphql_api_id: String,
     val barcode: String,
@@ -52,14 +52,15 @@ data class Variant(
     val updated_at: String,
     val weight: Int,
     val weight_unit: String
-)
+) : java.io.Serializable
 data class Option(
     val id: Long,
     val name: String,
     val position: Int,
     val product_id: Long,
     val values: List<String>
-)data class Image(
+): java.io.Serializable
+data class Image(
     val admin_graphql_api_id: String,
     val alt: Any,
     val created_at: String,
@@ -71,6 +72,6 @@ data class Option(
     val updated_at: String,
     val variant_ids: List<Any>,
     val width: Int
-)
+): java.io.Serializable
 
 

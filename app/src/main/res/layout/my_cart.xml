@@ -31,7 +31,7 @@
 		app:layout_constraintTop_toBottomOf="@+id/TVYour_cart"
 		app:layout_constraintWidth_percent=".9"
 		app:spanCount="1"
-		tools:itemCount="6"
+		tools:itemCount="2"
 		app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 	 />
 

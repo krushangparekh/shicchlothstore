@@ -1,11 +1,13 @@
 package com.example.ClothsStore.database
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import com.bumptech.glide.load.model.Model
+import com.example.ClothsStore.activity.Product
 
 class DatabaseHelper(context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -18,11 +20,12 @@ class DatabaseHelper(context: Context) :
         private const val KEY_PRICE = "price"
         private const val KEY_SIZE = "size"
         private const val KEY_COLOR = "color"
+        private const val IMAGE_URL = "imageUrl"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
         val CREATE_CONTACTS_TABLE =
-            ("CREATE TABLE " + TABLE_NAME + "(" + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_NAME + " TEXT, " + KEY_PRICE + " TEXT, " + KEY_SIZE + " TEXT, " + KEY_COLOR + " LONG)")
+            ("CREATE TABLE " + TABLE_NAME + "(" + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_NAME + " TEXT, "+ IMAGE_URL + " TEXT, " + KEY_PRICE + " TEXT, " + KEY_SIZE + " TEXT, " + KEY_COLOR + " LONG)")
         db!!.execSQL(CREATE_CONTACTS_TABLE)
     }
 
@@ -32,12 +35,13 @@ class DatabaseHelper(context: Context) :
         onCreate(db)
     }
 
-    fun addToCart(name: String, price: String?, size: String, color: String, style: String?) {
+    fun addToCart(name: String, price: String?, size: String,imageUrl : String, color: String, style: String?) {
         val db = this.writableDatabase
         val productListModel = ContentValues().apply {
             put(KEY_NAME, name)
             put(KEY_PRICE, price)
             put(KEY_SIZE, size)
+            put(IMAGE_URL, imageUrl)
             put(KEY_COLOR, color)
         }
         db.insertWithOnConflict(TABLE_NAME, null, productListModel, 0)
@@ -66,7 +70,8 @@ class DatabaseHelper(context: Context) :
             val price = cursor.getString(cursor.getColumnIndexOrThrow(KEY_PRICE))
             val size = cursor.getString(cursor.getColumnIndexOrThrow(KEY_SIZE))
             val color = cursor.getString(cursor.getColumnIndexOrThrow(KEY_COLOR))
-            val product = Product(id, name, price, size)
+            val imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_URL))
+            val product = Product(id, name, price, size,imageUrl)
             productListModel.add(product)
             Log.d("alldata", "id=$id, name=$name, price=$price, size$size, color$color")
         }
@@ -74,6 +79,7 @@ class DatabaseHelper(context: Context) :
         return productListModel
     }
 
+    @SuppressLint("Range")
     fun readCourses(): ArrayList<Product>? {
         // on below line we are creating a
         // database for reading our database.
@@ -91,10 +97,11 @@ class DatabaseHelper(context: Context) :
                 // on below line we are adding the data from cursor to our array list.
                 courseModalArrayList.add(
                     Product(
-                        cursorCourses.getInt(1),
-                        cursorCourses.getString(4),
-                        cursorCourses.getString(2),
-                        cursorCourses.getString(3)
+                        cursorCourses.getInt(cursorCourses.getColumnIndex(KEY_ID)),
+                        cursorCourses.getString(cursorCourses.getColumnIndex(KEY_NAME)),
+                        cursorCourses.getString(cursorCourses.getColumnIndex(KEY_PRICE)),
+                        cursorCourses.getString(cursorCourses.getColumnIndex(KEY_SIZE)),
+                        cursorCourses.getString(cursorCourses.getColumnIndex(IMAGE_URL))
                     )
                 )
             } while (cursorCourses.moveToNext())
@@ -116,10 +123,3 @@ private operator fun SQLiteDatabase.invoke(
 
 interface Plant {
 }
-
-class Product(
-    id: Int,
-    name: String?,
-    price: String,
-    size: String?,
-) : Plant
