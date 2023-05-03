@@ -3,6 +3,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
+import android.net.Uri
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
@@ -11,9 +12,9 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
-import com.example.ClothsStore.database.DatabaseHelper
 import com.example.ClothsStore.ViewAdapter.MyCustomPagerAdapter
 import com.example.ClothsStore.ViewAdapter.ProductDetailedModel1
+import com.example.ClothsStore.database.DatabaseHelper
 import com.google.android.gms.analytics.ecommerce.Product
 import retrofit2.Call
 import retrofit2.Callback
@@ -66,9 +67,7 @@ class detailed_page : AppCompatActivity() {
         minusButton = findViewById(R.id.minus_button)
         plusButton = findViewById(R.id.plus_button)
         val myValue = intent.getStringExtra("id")
-//
-//        val dbHelper = DatabaseHelper(this)
-//        dbHelper.getCartItems()
+
 
         add_to_cart_button.setOnClickListener {
             Log.e("PRODUCT_NAME=======", getProductName.toString())
@@ -193,9 +192,15 @@ class detailed_page : AppCompatActivity() {
 
         buy_now_button.setOnClickListener {
 
-            val intent = Intent(this@detailed_page, AddAddressPage::class.java)
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse("https://shiv-cloths-store.myshopify.com/checkouts/c/5a27a814becbea4e27440c9eac1f6081/information")
+//            intent.data = Uri.parse("https://shiv-cloths-store.myshopify.com/")
             startActivity(intent)
+//            val intent = Intent(this@detailed_page, AddAddressPage::class.java)
+//            startActivity(intent)
         }
+
+
     }
     private fun changeState(selectedId: Int) {
         for (i in 0 until valueList.size) {

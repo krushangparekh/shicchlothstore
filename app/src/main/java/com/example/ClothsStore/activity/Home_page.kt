@@ -9,12 +9,18 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.core.view.isVisible
+import androidx.core.widget.NestedScrollView
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentContainer
+import androidx.fragment.app.FragmentContainerView
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ClothsStore.UI.MyProfileFragment
-import com.example.ClothsStore.activity.productListModel
 import com.example.ClothsStore.ViewAdapter.RecyclerViewAdapter
+import com.example.ClothsStore.activity.productListModel
 import com.google.android.material.navigation.NavigationView
 import retrofit2.Call
 import retrofit2.Callback
@@ -33,6 +39,8 @@ class Home_page : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     private lateinit var drawer : DrawerLayout
     private lateinit var navigationView : NavigationView
     private lateinit var hedarshopnow : Button
+    private lateinit var relMain : RelativeLayout
+    private lateinit var frmContainer : FragmentContainerView
 
     @SuppressLint("MissingInflatedId", "ApplySharedPref", "RtlHardcoded")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +55,8 @@ class Home_page : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         PBprogressBar = findViewById(R.id.PBprogressBar)
         IBaddtocart = findViewById(R.id.IBaddtocart)
         drawer_imgBTN = findViewById(R.id.drawer_imgBTN)
+        relMain = findViewById(R.id.relMain)
+        frmContainer = findViewById(R.id.frmContainer)
         drawer = findViewById(R.id.drawer)
         drawer_imgBTN.setOnClickListener{
             if (drawer.isDrawerOpen(GravityCompat.START)){
@@ -59,6 +69,8 @@ class Home_page : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_home -> {
+                    relMain.visibility = View.VISIBLE
+                    frmContainer.visibility =View.GONE
                     Toast.makeText(this, "My Home", Toast.LENGTH_SHORT).show()
                     drawer.closeDrawer(GravityCompat.START)
                     val intent = Intent(this@Home_page, Home_page::class.java)
@@ -66,9 +78,17 @@ class Home_page : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
                 }
                 R.id.nav_profile -> {
-                    Toast.makeText(this, "My Profile", Toast.LENGTH_SHORT).show()
+                    relMain.visibility = View.GONE
+                    frmContainer.visibility =View.VISIBLE
                     drawer.closeDrawer(GravityCompat.START)
-                    val intent = Intent(this@Home_page, MyProfileFragment::class.java)
+                    val someFragment: Fragment = MyProfileFragment()
+                    val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+                    transaction?.replace(
+                        R.id.frmContainer,
+                        someFragment
+                    ) // give your fragment container id in first parameter
+                    transaction?.addToBackStack(null) // if written, this transaction will be added to backstack
+                    transaction?.commit()
 
                     true
                 }
@@ -148,6 +168,14 @@ class Home_page : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
     private fun setSupportActionBar(toolbar: Toolbar) {
 
+    }
+
+    override fun onBackPressed() {
+        if (frmContainer.isVisible){
+            frmContainer.visibility = View.GONE
+            relMain.visibility = View.VISIBLE
+        }
+        super.onBackPressed()
     }
 
 

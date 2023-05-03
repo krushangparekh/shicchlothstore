@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
         //  supportActionBar?.hide()
         supportActionBar?.title = "Bull's Rent"
         //Animations
@@ -46,18 +48,7 @@ class MainActivity : AppCompatActivity() {
         TVmainslogan.animation = bottomAnim
         TVmainslogan.animation = bottomAnim
         buttonmain.setOnClickListener {
-           /* val sharedPreferences  = getSharedPreferences("setdata", Context.MODE_PRIVATE)
-            val bool_islogin = sharedPreferences.getBoolean("islogin",false)
-            Log.e("sharedPreferences--:::", "bool_islogin:::" + bool_islogin)
-            if(bool_islogin){
-               // intent = Intent(this@MainActivity, Home_page::class.java)
 
-                Toast.makeText(this,"False",Toast.LENGTH_SHORT).show()
-            } else {
-//                intent = Intent(this@MainActivity, Login::class.java)
-//                startActivity(intent)
-//                finish()
-            }*/
             val sharedPref = getSharedPreferences("MySharedPref", MODE_PRIVATE)
             val isLogin = sharedPref.getBoolean("islogin", false)
             if (isLogin) {
@@ -73,9 +64,8 @@ class MainActivity : AppCompatActivity() {
                     finish()
                 }
             }
-          /* val intent = Intent(this@MainActivity, Login::class.java)
-           startActivity(intent)
-           finish()*/
+
+
         }
     }
 }

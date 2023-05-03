@@ -26,9 +26,9 @@
 			<ImageView
 				android:id="@+id/rvproductimageurl"
 				android:layout_width="160dp"
-				android:layout_height="160dp"
+				android:layout_height="170dp"
 				android:layout_gravity="center"
-				android:layout_marginTop="5dp"
+				android:layout_marginTop="10dp"
 				android:src="@drawable/can1" />
 
 			<!--	<LinearLayout

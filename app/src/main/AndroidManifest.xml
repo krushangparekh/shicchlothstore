@@ -22,23 +22,24 @@
         android:theme="@style/Theme.ClothsStore"
         android:usesCleartextTraffic="true"
         tools:targetApi="31" >
+<!--        <activity-->
+<!--            android:name=".activity.MyProfileFragment"-->
+<!--            android:exported="false" >-->
+<!--            <meta-data-->
+<!--                android:name="android.app.lib_name"-->
+<!--                android:value="" />-->
+<!--        </activity>-->
         <activity
-            android:name=".MyProfile"
+            android:name=".activity.Navigation_bar"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".Navigation_bar"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Navigation_Activity"
-            android:exported="false" >
+            android:name=".activity.Navigation_bar"
+            android:exported="false"
+            tools:ignore="DuplicateActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -57,10 +58,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".My_Cart"
-            android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".task"
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar" />
 
