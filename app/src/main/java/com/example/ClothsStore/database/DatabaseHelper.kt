@@ -60,10 +60,6 @@ class DatabaseHelper(context: Context) :
         val query = "SELECT * FROM $TABLE_NAME"
         val cursor = db.rawQuery(query, null)
 
-//        Log.e("PRODUCT_cursor$$", db.rawQuery(query, null))
-//        Log.e("PRODUCT_cursor$$", db.rawQuery(query, null))
-//        val cursor = db.rawQuery("SELECT * FROM $TABLE_NAME", null)
-
         while (cursor.moveToNext()) {
             val id = cursor.getInt(cursor.getColumnIndexOrThrow(KEY_ID))
             val name = cursor.getString(cursor.getColumnIndexOrThrow(KEY_NAME))
@@ -71,7 +67,7 @@ class DatabaseHelper(context: Context) :
             val size = cursor.getString(cursor.getColumnIndexOrThrow(KEY_SIZE))
             val color = cursor.getString(cursor.getColumnIndexOrThrow(KEY_COLOR))
             val imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_URL))
-            val product = Product(id, name, price, size,imageUrl)
+            val product = Product(id, name, price, size,color,imageUrl)
             productListModel.add(product)
             Log.d("alldata", "id=$id, name=$name, price=$price, size$size, color$color")
         }
@@ -101,6 +97,7 @@ class DatabaseHelper(context: Context) :
                         cursorCourses.getString(cursorCourses.getColumnIndex(KEY_NAME)),
                         cursorCourses.getString(cursorCourses.getColumnIndex(KEY_PRICE)),
                         cursorCourses.getString(cursorCourses.getColumnIndex(KEY_SIZE)),
+                        cursorCourses.getString(cursorCourses.getColumnIndex(KEY_COLOR)),
                         cursorCourses.getString(cursorCourses.getColumnIndex(IMAGE_URL))
                     )
                 )

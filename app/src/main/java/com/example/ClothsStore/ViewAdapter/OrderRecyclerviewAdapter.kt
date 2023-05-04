@@ -15,10 +15,10 @@ import com.example.ClothsStore.R
 import com.example.ClothsStore.detailed_page
 import com.squareup.picasso.Picasso
 
-class OrdarRecyclerviewAdapter(
+class OrderRecyclerviewAdapter(
     var context: Context,
     private val dataList: ArrayList<ProductDetailedModel1>
-) : RecyclerView.Adapter<OrdarRecyclerviewAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<OrderRecyclerviewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -28,7 +28,7 @@ class OrdarRecyclerviewAdapter(
 
     @SuppressLint("SuspiciousIndentation", "SetTextI18n")
     override fun onBindViewHolder(
-        holder: OrdarRecyclerviewAdapter.ViewHolder,
+        holder: OrderRecyclerviewAdapter.ViewHolder,
         position: Int,
         payloads: MutableList<Any>
     ) {

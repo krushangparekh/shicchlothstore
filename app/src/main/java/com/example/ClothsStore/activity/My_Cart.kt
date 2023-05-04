@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ClothsStore.activity.productListModel
 import com.example.ClothsStore.database.DatabaseHelper
-import com.example.ClothsStore.ViewAdapter.AddToCartRecyclerViewAdapter
+import com.example.ClothsStore.ViewAdapter.AddToCartAdapter
 import com.example.ClothsStore.activity.Product
 import com.google.gson.Gson
 
@@ -18,7 +18,7 @@ class My_Cart : AppCompatActivity() {
 
     var arrayList: ArrayList<productListModel> = ArrayList()
     private lateinit var buy_nowcart: TextView
-    var addToCartRecyclerViewAdapter: AddToCartRecyclerViewAdapter? = null
+    var addToCartAdapter: AddToCartAdapter? = null
     var recyclerView: RecyclerView? = null
 
 
@@ -39,8 +39,8 @@ class My_Cart : AppCompatActivity() {
         recyclerView = findViewById(R.id.cart_recycler)
 
 //        arrayList = dbHelper.addToCart()
-        addToCartRecyclerViewAdapter  = AddToCartRecyclerViewAdapter(this,cursor, My_Cart())
-        recyclerView?.adapter = addToCartRecyclerViewAdapter
+        addToCartAdapter  = AddToCartAdapter(this,cursor, My_Cart())
+        recyclerView?.adapter = addToCartAdapter
 
         buy_nowcart.setOnClickListener {
 
