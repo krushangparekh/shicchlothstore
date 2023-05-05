@@ -21,19 +21,12 @@
 		android:usesCleartextTraffic="true"
 		tools:targetApi="31">
 		<activity
-			android:name=".Order_Activity"
+			android:name=".activity.My_Order"
 			android:exported="false">
 			<meta-data
 				android:name="android.app.lib_name"
 				android:value="" />
 		</activity>
-		<!-- <activity -->
-		<!-- android:name=".activity.MyProfileFragment" -->
-		<!-- android:exported="false" > -->
-		<!-- <meta-data -->
-		<!-- android:name="android.app.lib_name" -->
-		<!-- android:value="" /> -->
-		<!-- </activity> -->
 		<activity
 			android:name=".activity.Navigation_bar"
 			android:exported="false">
@@ -112,8 +105,10 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".activity.Order_Activity"
-			android:exported="true" />
+		<activity
+			android:name=".activity.Buy_now_Activity"
+			android:exported="true"
+			android:theme="@style/AppTheme.NoActionBar" />
 
 		<meta-data
 			android:name="preloaded_fonts"

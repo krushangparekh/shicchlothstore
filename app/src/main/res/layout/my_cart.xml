@@ -1,39 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
-	<TextView
-		android:id="@+id/TVYour_cart"
+	<LinearLayout
 		android:layout_width="match_parent"
-		android:layout_height="52dp"
-		android:layout_marginTop="10dp"
-		android:background="@color/blue"
-		android:gravity="center"
-		android:text="Your cart"
-		android:textColor="@color/black"
-		android:textSize="18sp"
-		android:textStyle="bold"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintWidth_percent=".9"
-		tools:ignore="HardcodedText,MissingConstraints" />
-
-	<androidx.recyclerview.widget.RecyclerView
-		android:id="@+id/cart_recycler"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		tools:listitem="@layout/mycard_item"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/TVYour_cart"
-		app:layout_constraintWidth_percent=".9"
-		app:spanCount="1"
-		tools:itemCount="2"
-		app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-	 />
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+		<TextView
+			android:id="@+id/TVYour_cart"
+			android:layout_width="match_parent"
+			android:layout_height="52dp"
+			android:background="@color/blue"
+			android:gravity="center"
+			android:text="Your cart"
+			android:textColor="@color/black"
+			android:textSize="18sp"
+			android:textStyle="bold"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintWidth_percent=".9"
+			tools:ignore="HardcodedText,MissingConstraints" />
+		<androidx.recyclerview.widget.RecyclerView
+			android:id="@+id/cart_recycler"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/TVYour_cart"
+			app:layout_constraintWidth_percent=".9"
+			app:spanCount="1"
+			tools:itemCount="2"
+			tools:listitem="@layout/mycard_item" />
+	</LinearLayout>
 
 	<Button
 		android:id="@+id/buy_nowcart"
@@ -44,6 +46,7 @@
 		android:drawableStart="@drawable/ic_baseline_shopping_cart_24"
 		android:drawableTint="@color/black"
 		android:padding="15dp"
+		android:layout_alignParentBottom="true"
 		android:text="@string/buy_now"
 		android:textAllCaps="false"
 		android:textStyle="bold"
@@ -51,10 +54,22 @@
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintWidth_percent=".9"
-		tools:targetApi="m" />
+		tools:ignore="UnusedAttribute" />
+
+	<TextView
+		android:id="@+id/tvNoOProductAvailable"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:textSize="18sp"
+		android:textColor="@color/black"
+		android:textStyle="bold"
+		android:visibility="gone"
+		android:gravity="center"
+		android:text="No Product Available"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
 
 
 	<!--

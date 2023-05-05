@@ -4,7 +4,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.icu.text.Transliterator.Position
-import android.net.Uri
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
@@ -15,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.example.ClothsStore.ViewAdapter.MyCustomPagerAdapter
 import com.example.ClothsStore.ViewAdapter.ProductDetailedModel1
-import com.example.ClothsStore.activity.Order_Activity
+import com.example.ClothsStore.activity.Buy_now_Activity
 import com.example.ClothsStore.database.DatabaseHelper
 import com.google.android.gms.analytics.ecommerce.Product
 import retrofit2.Call
@@ -75,12 +74,13 @@ class detailed_page : AppCompatActivity() {
             Log.e("PRODUCT_NAME=======", getProductName.toString())
             Log.e("PRODUCT_$$$$", getProductRS.toString())
 
-//Log.e("PRODUCT_$$", myLayoutId.toString())
-//Log.e("PRODUCT_$", tvcolorch.toString())
-
-
             val dbHelper = DatabaseHelper(this)
-            dbHelper.addToCart(getProductName.toString(), getProductRS.toString(),getProductSize.toString(),ImagesList.get(0), colorList[0], style = null )
+            dbHelper.addToCart(
+                name = getProductName!!,
+                price = getProductRS!!,
+                size = getProductSize!!,
+                imageUrl = ImagesList.get(0),
+                color = colorList[0], style = null )
 
             val intent = Intent(this@detailed_page, My_Cart::class.java)
             startActivity(intent)
@@ -120,19 +120,13 @@ class detailed_page : AppCompatActivity() {
 
                         tvcolorch.text = (response!!.variants[0].option2+"")
                     detailed_textview.text = Html.fromHtml(response.body_html)
-                    /*Log.w("imageee1::::::", "images:::" + response?.images?.get(0)?.src)
-                      Log.d("imageee2::::::", "images:::" + response?.images?.get(1)?.src)
-                      Log.d("imageee3::::::", "images:::" + response?.images?.get(2)?.src)
-                      Picasso.get().load(response?.images?.get(0)?.src).into(detailed_img)
-                      Picasso.get().load(response?.images?.get(1)?.src).into(detailed_img)
-                      Picasso.get().load(response?.images?.get(2)?.src).into(detailed_img)*/
 
-                    ////////////on
+                    /////for color mate try kruyou che-> on
                     for (j in 0 until response.variants.size) {
                         colorList.add(response.variants[j].option2 +"")
                     }
-                    /////for color mate try kruyou che
-
+                    ///stop
+                                                            ///size
                     for (j in 0 until response.variants.size) {
                         valueList.add(response.variants[j].option1.toString())
                     }
@@ -156,22 +150,9 @@ class detailed_page : AppCompatActivity() {
                         tv.layoutParams = lp
                         myLayoutId.addView(tv)
                     }
-                    /* for (j in 0 until response.variants.size) {
-                         valueList.add(response.variants[j].option2.toString())
-
-                     }
-
-                    for (j in 0 until response.image.src.toString()){
-                        Log.w("imageee-------", "images:::" + response.variants.size)
-                        Log.w("imageee++++++++", "images:::" + response.image.src[j].toString())
-                        ImagesList.add(response.image.src[j].toString())
-                    }*/
-
                     for (j in 0 until response.images.size) {
                         val Image = response.images.size
-                        /*   Log.w("img-------", "variants:::" + response.variants.size)
-                           Log.w("img-------", "images:::" + response.images[j].src)
-                           Log.w("img-------", "image:::" + response.image.src)*/
+
                         ImagesList.add(response.images[j].src)
                     }
                     myCustomPagerAdapter = MyCustomPagerAdapter(this@detailed_page, ImagesList)
@@ -196,8 +177,7 @@ class detailed_page : AppCompatActivity() {
           /*  val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("https://shiv-cloths-store.myshopify.com/checkouts/c/5a27a814becbea4e27440c9eac1f6081/information")*/
 //            intent.data = Uri.parse("https://shiv-cloths-store.myshopify.com/")
-           /* startActivity(intent)*/
-            val intent = Intent(this@detailed_page, Order_Activity::class.java)
+            val intent = Intent(this@detailed_page, Buy_now_Activity::class.java)
             startActivity(intent)
         }
 

@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ClothsStore.UI.MyProfileFragment
 import com.example.ClothsStore.ViewAdapter.RecyclerViewAdapter
 import com.example.ClothsStore.activity.Datas
+import com.example.ClothsStore.activity.My_Order
+import com.example.ClothsStore.activity.Navigation_bar
 import com.example.ClothsStore.activity.productListModel
 import com.google.android.material.navigation.NavigationView
 import retrofit2.Call
@@ -57,6 +59,7 @@ class Home_page : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         relMain = findViewById(R.id.relMain)
         frmContainer = findViewById(R.id.frmContainer)
         drawer = findViewById(R.id.drawer)
+
         drawer_imgBTN.setOnClickListener{
             if (drawer.isDrawerOpen(GravityCompat.START)){
                 drawer.closeDrawer(GravityCompat.START)
@@ -92,8 +95,13 @@ class Home_page : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                     true
                 }
                 R.id.nav_myorder -> {
+                    relMain.visibility = View.VISIBLE
+                    frmContainer.visibility =View.GONE
                     Toast.makeText(this, "My Order", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this@Home_page, My_Order::class.java)
+                    startActivity(intent)
                     drawer.closeDrawer(GravityCompat.START)
+
                     true
                 }
                 else -> {
@@ -115,6 +123,8 @@ class Home_page : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         textvshivclothhedar.setOnClickListener {
             val intent = Intent(this@Home_page, Home_page::class.java)
             startActivity(intent)
+
+
         }
 
         hedarshopnow.setOnClickListener {
@@ -187,111 +197,5 @@ class Home_page : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
     }
 
 }
-
-/*class Home_page : AppCompatActivity() {
-
-    ///////navigation bar start
-    private lateinit var drawerLayout: DrawerLayout
-    private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
-    ///--end--////
-
-    ////////////drawer_button call navigation bar
-    private lateinit var drawer_button: ImageButton
-    //--end---//
-
-
-    @SuppressLint("MissingInflatedId")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home_page)
-
-        /////////////////////navigation bar start
-        drawer_button = this.findViewById(R.id.drawer_button)
-        actionBarDrawerToggle =
-            ActionBarDrawerToggle(this, drawerLayout, R.string.navopen, R.string.navclose)
-
-        drawerLayout.addDrawerListener(actionBarDrawerToggle)
-        actionBarDrawerToggle.syncState()
-        //////////////////// end
-
-        ////////////drawer_button call navigation bar
-        drawer_button = findViewById(R.id.drawer_button);
-        drawer_button.setOnClickListener {
-            if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                drawerLayout.closeDrawer(GravityCompat.START)
-            } else {
-                drawerLayout.openDrawer(GravityCompat.START)
-            }
-        }
-
-        //--end---//
-
-
-        val myListData = arrayOf(
-            MyData("11111", R.drawable.blank21),
-            MyData("22222222", R.drawable.blank22),
-            MyData("3333", R.drawable.blank23),
-            MyData("44444", R.drawable.can1),
-            MyData("55555", R.drawable.can2),
-            MyData("666666", R.drawable.can3),
-            MyData("777777", R.drawable.can2),
-            MyData("888888", R.drawable.can3),
-            MyData("11111", R.drawable.blank21),
-            MyData("22222222", R.drawable.blank22),
-        )
-        val recyclerViewOKL = findViewById<View>(R.id.recycleView2) as RecyclerView
-        val adapter = RecyclerViewAdapter(this, myListData)
-        recyclerViewOKL.adapter = adapter
-
-        val textvshivclothhedar: TextView = findViewById(R.id.textvshivclothhedar)
-        textvshivclothhedar.setOnClickListener {
-            val intent = Intent(this@Home_page, detailed_page::class.java)
-            startActivity(intent)
-            finish()
-        }
-        val hedarshopnow: Button = findViewById(R.id.hedarshopnow)
-        hedarshopnow.setOnClickListener {
-            val intent = Intent(this@Home_page, detailed_page::class.java)
-            startActivity(intent)
-            finish()
-        }
-    }
-}*/
-//////////api/////////
-/*val retIn = RetrofitInstance.getRetrofitInstance().create(ApiInterface::class.java)
-loginBody(productsdata.toString(), productsdata.toString())
-
-retIn.loginUser(
-    productsdata.text.toString(),
-    productsdata.text.toString(),
-).enqueue(object : Callback<productsdata> {
-    override fun onFailure(call: Call<productsdata>, t: Throwable) {
-        Log.e("Data 2:::", "t.message:::" + t.message)
-        Toast.makeText(this@Home_page, t.message, Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onResponse(call: Call<productsdata>, response: Response<productsdata>) {
-        Log.e("Data 2:::", "response:::" + response.body())
-    //    progressBar.visibility = View.GONE
-        if (response.code() == 200) {
-            ///Intent///
-            startActivity(Intent(this@Home_page, Home_page::class.java))
-            finish()
-
-            Toast.makeText(
-                applicationContext,
-                "Login successful!",
-                Toast.LENGTH_SHORT
-            )
-                .show()
-//                                val intent = Intent(this@Login, Home_page::class.java)
-//                                startActivity(intent)
-//                                finish()
-        } else {
-            Toast.makeText(applicationContext, "Login failed!", Toast.LENGTH_SHORT)
-                .show()
-        }
-    }
-})*/
 
 

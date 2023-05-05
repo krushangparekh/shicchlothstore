@@ -7,7 +7,9 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import com.bumptech.glide.load.model.Model
+import com.example.ClothsStore.`interface`.RemoveCartCallback
 import com.example.ClothsStore.activity.Product
+
 
 class DatabaseHelper(context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -25,7 +27,7 @@ class DatabaseHelper(context: Context) :
 
     override fun onCreate(db: SQLiteDatabase?) {
         val CREATE_CONTACTS_TABLE =
-            ("CREATE TABLE " + TABLE_NAME + "(" + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_NAME + " TEXT, "+ IMAGE_URL + " TEXT, " + KEY_PRICE + " TEXT, " + KEY_SIZE + " TEXT, " + KEY_COLOR + " LONG)")
+            ("CREATE TABLE " + TABLE_NAME + "(" + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_NAME + " TEXT, " + IMAGE_URL + " TEXT, " + KEY_PRICE + " TEXT, " + KEY_SIZE + " TEXT, " + KEY_COLOR + " LONG)")
         db!!.execSQL(CREATE_CONTACTS_TABLE)
     }
 
@@ -35,7 +37,14 @@ class DatabaseHelper(context: Context) :
         onCreate(db)
     }
 
-    fun addToCart(name: String, price: String?, size: String,imageUrl : String, color: String, style: String?) {
+    fun addToCart(
+        name: String,
+        price: String,
+        size: String,
+        imageUrl: String,
+        color: String,
+        style: String?
+    ) {
         val db = this.writableDatabase
         val productListModel = ContentValues().apply {
             put(KEY_NAME, name)
@@ -47,10 +56,26 @@ class DatabaseHelper(context: Context) :
         db.insertWithOnConflict(TABLE_NAME, null, productListModel, 0)
     }
 
-    fun removeFromCart(productId: Int) {
+    fun removeFromCart(productId: Int, callback : RemoveCartCallback) {
         val db = writableDatabase
-        db.delete(TABLE_NAME, "$KEY_ID = ?", arrayOf(productId.toString()))
+        val args = arrayOf(productId.toString())
+        val deletedRows = db.delete(TABLE_NAME, "$KEY_ID=?", args)
+        if (deletedRows > 0) {
+            callback.onRemoveCartSuccess()
+        } else {
+            callback.onRemoveCartFailure()
+        }
     }
+
+    // below is the method for deleting our course.
+//    fun removeFromCart(productId: Int) {
+//
+//        // a variable to write our database.
+//        val db = this.writableDatabase
+//        db.delete(TABLE_NAME, "name=?", arrayOf(arrayOf(productId).toString()))
+//        db.close()
+//    }
+
 
     fun getCartItems(): ArrayList<Product> {
         val productListModel: ArrayList<Product> = arrayListOf()
@@ -67,7 +92,7 @@ class DatabaseHelper(context: Context) :
             val size = cursor.getString(cursor.getColumnIndexOrThrow(KEY_SIZE))
             val color = cursor.getString(cursor.getColumnIndexOrThrow(KEY_COLOR))
             val imageUrl = cursor.getString(cursor.getColumnIndexOrThrow(IMAGE_URL))
-            val product = Product(id, name, price, size,color,imageUrl)
+            val product = Product(id, name, price, size, color, imageUrl)
             productListModel.add(product)
             Log.d("alldata", "id=$id, name=$name, price=$price, size$size, color$color")
         }
@@ -77,20 +102,14 @@ class DatabaseHelper(context: Context) :
 
     @SuppressLint("Range")
     fun readCourses(): ArrayList<Product>? {
-        // on below line we are creating a
-        // database for reading our database.
         val db = this.readableDatabase
 
-        // on below line we are creating a cursor with query to read data from database.
         val cursorCourses = db.rawQuery("SELECT * FROM $TABLE_NAME", null)
 
-        // on below line we are creating a new array list.
         val courseModalArrayList: ArrayList<Product> = ArrayList()
 
-        // moving our cursor to first position.
         if (cursorCourses.moveToFirst()) {
             do {
-                // on below line we are adding the data from cursor to our array list.
                 courseModalArrayList.add(
                     Product(
                         cursorCourses.getInt(cursorCourses.getColumnIndex(KEY_ID)),
@@ -102,12 +121,14 @@ class DatabaseHelper(context: Context) :
                     )
                 )
             } while (cursorCourses.moveToNext())
-            // moving our cursor to next.
         }
-        // at last closing our cursor
-        // and returning our array list.
+
         cursorCourses.close()
         return courseModalArrayList
+    }
+
+    fun removeFromCart(productId: String) {
+
     }
 
 }
