@@ -12,18 +12,18 @@ import android.widget.ProgressBar
 import com.example.ClothsStore.R
 
 class My_Order : AppCompatActivity() {
-    lateinit var webview2: WebView
-    lateinit var PBBarview: ProgressBar
+   /* lateinit var webview2: WebView
+    lateinit var PBBarview: ProgressBar*/
 
     @SuppressLint("MissingInflatedId", "SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_order)
-        PBBarview = findViewById(R.id.PBBarview)
+       /* PBBarview = findViewById(R.id.PBBarview)
         webview2 = findViewById(R.id.webview2)
-        webview2.settings.javaScriptEnabled = true
-        webview2.loadUrl("https://admin.shopify.com/store/shiv-cloths-store/orders")
-        webview2.webViewClient = object : WebViewClient() {
+        webview2.settings.javaScriptEnabled = true*/
+//        webview2.loadUrl("https://admin.shopify.com/store/shiv-cloths-store/orders")
+        /*webview2.webViewClient = object : WebViewClient() {
 
             override fun shouldOverrideUrlLoading(
                 view: WebView?,
@@ -37,21 +37,21 @@ class My_Order : AppCompatActivity() {
                 super.onPageStarted(view, url, favicon)
             }
 
-            override fun onPageFinished(view: WebView?, url: String?) {
+            *//*override fun onPageFinished(view: WebView?, url: String?) {
                 PBBarview.visibility = View.GONE
                 super.onPageFinished(view, url)
-            }
-        }
+            }*//*
+        }*/
     }
 
-    @Deprecated("Deprecated in Java")
+   /* @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         if (webview2.canGoBack()) {
             webview2.goBack()
         } else {
             super.onBackPressed()
         }
-    }
+    }*/
 }
 
 

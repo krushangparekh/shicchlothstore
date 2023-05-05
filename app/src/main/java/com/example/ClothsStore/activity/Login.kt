@@ -60,29 +60,27 @@ class Login : AppCompatActivity() {
             }
             if (TextUtils.isEmpty(str_passwordedittext.toString())) {
                 passwordedittext.error = "Please enter your password"
-                 return@setOnClickListener
-            } else
+                return@setOnClickListener
+            } else {
 
-            {
+                /* if (mEmailedittext.text.toString().trim().length === 0) {
+                 mEmailedittext.error = "Email is not entered"
+                 mEmailedittext.requestFocus()
 
-               /* if (mEmailedittext.text.toString().trim().length === 0) {
-                mEmailedittext.error = "Email is not entered"
-                mEmailedittext.requestFocus()
+             } else if (mEmailedittext.text.toString().trim().length === 0) {
+                 mEmailedittext.error = "Email is not entered"
+                 mEmailedittext.requestFocus()
 
-            } else if (mEmailedittext.text.toString().trim().length === 0) {
-                mEmailedittext.error = "Email is not entered"
-                mEmailedittext.requestFocus()
+             } else if (passwordedittext.text.toString().trim().length === 0) {
+                 passwordedittext.error = "Password is not entered"
+                 passwordedittext.requestFocus()
 
-            } else if (passwordedittext.text.toString().trim().length === 0) {
-                passwordedittext.error = "Password is not entered"
-                passwordedittext.requestFocus()
+             } else if (passwordedittext.text.toString().trim().length === 0) {
+                 passwordedittext.error = "Password is not entered"
+                 passwordedittext.requestFocus()
+             } else
 
-            } else if (passwordedittext.text.toString().trim().length === 0) {
-                passwordedittext.error = "Password is not entered"
-                passwordedittext.requestFocus()
-            } else
-
-            { */
+             { */
                 progressBar.visibility = View.VISIBLE
 
                 val retIn = RetrofitInstance.getRetrofitInstance().create(ApiInterface::class.java)
@@ -94,12 +92,16 @@ class Login : AppCompatActivity() {
                 ).enqueue(object : Callback<Datalogin> {
                     override fun onFailure(call: Call<Datalogin>, t: Throwable) {
                         Log.e("Data 2:::", "t.message:::" + t.message)
-                        Toast.makeText(this@Login, t.message, Toast.LENGTH_SHORT).show() }
+                        Toast.makeText(this@Login, t.message, Toast.LENGTH_SHORT).show()
+                    }
+
                     override fun onResponse(call: Call<Datalogin>, response: Response<Datalogin>) {
                         Log.e("Data 2:::", "response:::" + response.body())
                         progressBar.visibility = View.GONE
                         if (response.code() == 200) {
-                            Toast.makeText(applicationContext, "Login successful!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                applicationContext, "Login successful!", Toast.LENGTH_SHORT
+                            ).show()
 //                                val intent = Intent(this@Login, Home_page::class.java)
 //                                startActivity(intent)
 //                                finish()
@@ -109,17 +111,17 @@ class Login : AppCompatActivity() {
                             finish()
 
                             ///data save in localstore/////
-                            val sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE)
+                            val sharedPreferences =
+                                getSharedPreferences("MySharedPref", MODE_PRIVATE)
                             val editor = sharedPreferences.edit()
                             editor.putString("userName", mEmailedittext.text.toString())
-                            editor.putBoolean("islogin",true)
+                            editor.putBoolean("islogin", true)
                             editor.apply()
 //                            preferencemanager.getdefaultsharedpreferences(this@Login).edit().putstring("username",mEmailedittext.text.toString()).apply();
                         } else {
-                            Toast.makeText(applicationContext, "Login failed!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(applicationContext, "Login failed!", Toast.LENGTH_SHORT)
+                                .show()
                         }
-
-
 
 
                     }

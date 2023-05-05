@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ClothsStore.ViewAdapter.AddToCartAdapter
+import com.example.ClothsStore.activity.Buy_now_Activity
 import com.example.ClothsStore.activity.Product
 import com.example.ClothsStore.activity.productListModel
 import com.example.ClothsStore.database.DatabaseHelper
@@ -25,7 +26,6 @@ class My_Cart : AppCompatActivity() {
     private lateinit var selectremove: ImageView
 
 
-
 //    val cartItems: ArrayList<Product> = dbHelper.getCartItems()
 
 
@@ -35,7 +35,7 @@ class My_Cart : AppCompatActivity() {
         setContentView(R.layout.my_cart)
         initilization()
 
-         val dbHelper = DatabaseHelper(this)
+        val dbHelper = DatabaseHelper(this)
 
         var cursor: ArrayList<Product> = dbHelper.getCartItems()
         Log.e("cart Data", Gson().toJson(dbHelper.getCartItems()).toString())
@@ -44,24 +44,18 @@ class My_Cart : AppCompatActivity() {
 
 //        arrayList = dbHelper.addToCart()
         cursor.reverse()
-        addToCartAdapter  = AddToCartAdapter(this,cursor, My_Cart())
+        addToCartAdapter = AddToCartAdapter(this, cursor, My_Cart())
         recyclerView?.adapter = addToCartAdapter
 
         buy_nowcart.setOnClickListener {
 
-            val intent = Intent(this@My_Cart, AddAddressPage::class.java)
+            val intent = Intent(this@My_Cart, Buy_now_Activity::class.java)
             startActivity(intent)
         }
 
-        /*selectremove.setOnClickListener {
-            val dbHelper = DatabaseHelper(this)
-
-            dbHelper.removeFromCart(productId)
-        }*/
-
-
     }
-        private fun initilization() {
+
+    private fun initilization() {
         recyclerView = findViewById(R.id.cart_recycler)
     }
 }

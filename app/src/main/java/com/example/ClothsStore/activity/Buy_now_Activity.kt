@@ -12,8 +12,8 @@ import android.widget.ProgressBar
 import com.example.ClothsStore.R
 
 class Buy_now_Activity : AppCompatActivity() {
-     lateinit var webview: WebView
-     lateinit var PBprogressBarview: ProgressBar
+    lateinit var webview: WebView
+    lateinit var PBprogressBarview: ProgressBar
 
 
     @SuppressLint("MissingInflatedId", "SetJavaScriptEnabled")
@@ -28,7 +28,9 @@ class Buy_now_Activity : AppCompatActivity() {
         webview.loadUrl("https://shiv-cloths-store.myshopify.com/")
         webview.webViewClient = object : WebViewClient() {
 
-            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+            override fun shouldOverrideUrlLoading(
+                view: WebView?, request: WebResourceRequest?
+            ): Boolean {
                 return super.shouldOverrideUrlLoading(view, request)
             }
 
@@ -51,7 +53,6 @@ class Buy_now_Activity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
-
 
 
 }

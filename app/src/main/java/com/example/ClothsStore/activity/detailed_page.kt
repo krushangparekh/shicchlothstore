@@ -1,4 +1,5 @@
 package com.example.ClothsStore
+
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
@@ -40,7 +41,7 @@ class detailed_page : AppCompatActivity() {
     val valueList: ArrayList<String> = ArrayList()
     val ImagesList: ArrayList<String> = ArrayList()
     val colorList: ArrayList<String> = ArrayList()
-   val  Products: ArrayList<Product> = ArrayList()
+    val Products: ArrayList<Product> = ArrayList()
 
     var myCustomPagerAdapter: MyCustomPagerAdapter? = null
 
@@ -80,7 +81,9 @@ class detailed_page : AppCompatActivity() {
                 price = getProductRS!!,
                 size = getProductSize!!,
                 imageUrl = ImagesList.get(0),
-                color = colorList[0], style = null )
+                color = colorList[0],
+                style = null
+            )
 
             val intent = Intent(this@detailed_page, My_Cart::class.java)
             startActivity(intent)
@@ -103,14 +106,14 @@ class detailed_page : AppCompatActivity() {
 
                 @SuppressLint("SetTextI18n")
                 override fun onResponse(
-                    call: Call<ProductDetailedModel1>,
-                    response: Response<ProductDetailedModel1>
+                    call: Call<ProductDetailedModel1>, response: Response<ProductDetailedModel1>
                 ) {
                     progressBar2.visibility = View.GONE
 
                     val response = response.body()?.data
                     TVproductname.text = response?.title
-                    detailed_price.text = response?.variants?.get(0)?.price   //array in variants and get thi position set thay price ne
+                    detailed_price.text =
+                        response?.variants?.get(0)?.price   //array in variants and get thi position set thay price ne
                     TVproductname.text = response?.title
 
                     /////////add to cart ////////data send//////////
@@ -118,15 +121,15 @@ class detailed_page : AppCompatActivity() {
                     getProductRS = response?.variants?.get(0)?.price
                     getProductSize = response?.variants?.get(0)?.option1
 
-                        tvcolorch.text = (response!!.variants[0].option2+"")
+                    tvcolorch.text = (response!!.variants[0].option2 + "")
                     detailed_textview.text = Html.fromHtml(response.body_html)
 
                     /////for color mate try kruyou che-> on
                     for (j in 0 until response.variants.size) {
-                        colorList.add(response.variants[j].option2 +"")
+                        colorList.add(response.variants[j].option2 + "")
                     }
                     ///stop
-                                                            ///size
+                    ///size
                     for (j in 0 until response.variants.size) {
                         valueList.add(response.variants[j].option1.toString())
                     }
@@ -137,7 +140,7 @@ class detailed_page : AppCompatActivity() {
                         tv.setPadding(30, 10, 30, 10)
                         tv.id = i
                         tv.setTextColor(Color.BLACK)
-                        tv.setBackgroundResource(R.drawable.unselectedproductunitlayout);
+                        tv.setBackgroundResource(R.drawable.unselectedproductunitlayout)
                         tv.setTypeface(tv.typeface, Typeface.BOLD)
                         tv.setOnClickListener { view ->
                             changeState(view.id)
@@ -174,14 +177,14 @@ class detailed_page : AppCompatActivity() {
         }
 
         buy_now_button.setOnClickListener {
-          /*  val intent = Intent(Intent.ACTION_VIEW)
-            intent.data = Uri.parse("https://shiv-cloths-store.myshopify.com/checkouts/c/5a27a814becbea4e27440c9eac1f6081/information")*/
+            /*  val intent = Intent(Intent.ACTION_VIEW)
+              intent.data = Uri.parse("https://shiv-cloths-store.myshopify.com/checkouts/c/5a27a814becbea4e27440c9eac1f6081/information")*/
 //            intent.data = Uri.parse("https://shiv-cloths-store.myshopify.com/")
             val intent = Intent(this@detailed_page, Buy_now_Activity::class.java)
             startActivity(intent)
         }
-
     }
+
     private fun changeState(selectedId: Int) {
         for (i in 0 until valueList.size) {
             val textView = myLayoutId.getChildAt(i) as TextView
